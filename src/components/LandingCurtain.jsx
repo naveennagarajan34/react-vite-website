@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
-import { PosterCornerOrnament, FloralFiligreeDivider } from './OrnamentalMotifs';
+import { PosterCornerOrnament } from './OrnamentalMotifs';
 import { Sparkles } from 'lucide-react';
 
 export const LandingCurtain = ({ onOpen, playBgm }) => {
@@ -76,16 +76,8 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
       {/* Content Container */}
       <div className="relative z-10 max-w-md w-full px-6 text-center flex flex-col items-center">
         
-        {/* Top Blessing Header */}
-        <div className="mb-2">
-          <span className="font-cinzel text-xs sm:text-sm tracking-[0.3em] uppercase text-[#8C6A16] font-bold block">
-            WITH THE BLESSINGS OF ALMIGHTY
-          </span>
-          <FloralFiligreeDivider className="my-2" />
-        </div>
-
         {/* Luxury Gold Foil Monogram Crest */}
-        <div className="my-3 relative">
+        <div className="mb-3 relative">
           <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-[#D4AF37] bg-[#FFFFFF] shadow-[0_8px_24px_rgba(212,175,55,0.2)] flex items-center justify-center relative ring-4 ring-[#E6D3A3]/40">
             {/* Spinning subtle gold accent ring */}
             <div className="absolute inset-1 border border-dashed border-[#8C6A16]/40 rounded-full animate-[spin_30s_linear_infinite]" />
@@ -99,8 +91,8 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
         <h1 className="font-cinzel text-2xl sm:text-3xl font-bold text-[#8C6A16] tracking-wider mt-2">
           S. Guhan &amp; J. Harshini
         </h1>
-        <p className="font-playfair text-xs sm:text-sm tracking-[0.22em] text-[#1F1F1F] uppercase font-semibold mt-1">
-          Wedding Reception
+        <p className="font-playfair text-xs sm:text-sm tracking-[0.25em] text-[#1F1F1F] uppercase font-semibold mt-1.5">
+          Wedding Invitation
         </p>
 
         {/* Interactive Wedding Rings Union / Interlocking Animation */}
