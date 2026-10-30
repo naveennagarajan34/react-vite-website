@@ -116,13 +116,13 @@ export const GoldDivider = FloralSectionDivider;
 // Luxury Royal Event Badge with Architectural Bracket Frame, Embossed Emblem & Golden Glow
 export const BracketPill = ({ label, icon, text, subtext, href, onClick, className = '' }) => {
   const content = (
-    <div className={`relative group p-3 sm:py-3.5 sm:px-2 bg-gradient-to-b from-[#FFFFFF] to-[#FAF5ED] border border-[#E6D3A3] rounded-2xl shadow-[0_4px_16px_rgba(184,134,11,0.08)] hover:shadow-[0_8px_24px_rgba(184,134,11,0.18)] hover:border-[#D4AF37] transition-all duration-300 ease-out transform hover:-translate-y-1 active:translate-y-0 active:scale-[0.99] overflow-hidden flex flex-col justify-center ${className}`}>
+    <div className={`relative group py-2 px-3 bg-gradient-to-b from-[#FFFFFF] to-[#FAF5ED] border border-[#E6D3A3] rounded-2xl shadow-[0_4px_16px_rgba(184,134,11,0.08)] hover:shadow-[0_8px_24px_rgba(184,134,11,0.18)] hover:border-[#D4AF37] transition-all duration-300 ease-out transform hover:-translate-y-1 active:translate-y-0 active:scale-[0.99] overflow-hidden flex items-center justify-center ${className}`}>
       
       {/* Subtle Golden Border Shimmer Overlay on Hover */}
       <div className="absolute inset-0 bg-gradient-to-tr from-[#D4AF37]/0 via-[#FAF4E6]/25 to-[#D4AF37]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
       {/* Inner Metallic Gold Hairline Frame (#D4AF37) */}
-      <div className="absolute inset-1 sm:inset-1.5 border border-[#D4AF37]/50 rounded-xl pointer-events-none transition-colors duration-300 group-hover:border-[#D4AF37]" />
+      <div className="absolute inset-1 border border-[#D4AF37]/50 rounded-xl pointer-events-none transition-colors duration-300 group-hover:border-[#D4AF37]" />
 
       {/* Small Corner Diamond Florets */}
       <span className="absolute top-1 left-1 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/25 pointer-events-none group-hover:scale-110 transition-transform" />
@@ -136,30 +136,30 @@ export const BracketPill = ({ label, icon, text, subtext, href, onClick, classNa
       <div className="absolute bottom-0.5 left-0.5 w-2 h-2 border-b-2 border-l-2 border-[#D4AF37] rounded-bl-sm pointer-events-none" />
       <div className="absolute bottom-0.5 right-0.5 w-2 h-2 border-b-2 border-r-2 border-[#D4AF37] rounded-br-sm pointer-events-none" />
 
-      {/* Card Content Layout */}
-      <div className="relative z-10 flex items-center space-x-3 sm:flex-col sm:space-x-0 sm:space-y-1.5 text-left sm:text-center w-full px-1">
+      {/* Card Content Layout - Perfectly Centered Horizontally & Vertically */}
+      <div className="relative z-10 flex items-center justify-center space-x-2.5 text-center w-full">
         
         {/* Embossed Circular Gold Foil Emblem */}
-        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-[#FFFFFF] via-[#F8F1E1] to-[#EAD29A] border border-[#D4AF37] shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.9),0_2px_6px_rgba(140,106,22,0.18)] flex items-center justify-center text-[#7A5813] flex-shrink-0 group-hover:scale-105 group-hover:shadow-[0_0_12px_rgba(212,175,55,0.35)] transition-all">
+        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#FFFFFF] via-[#F8F1E1] to-[#EAD29A] border border-[#D4AF37] shadow-[inset_0_1px_2px_rgba(255,255,255,0.9),0_2px_6px_rgba(140,106,22,0.18)] flex items-center justify-center text-[#7A5813] flex-shrink-0 group-hover:scale-105 group-hover:shadow-[0_0_10px_rgba(212,175,55,0.35)] transition-all">
           {icon}
         </div>
 
-        {/* Text Container */}
-        <div className="min-w-0 flex-1 sm:w-full">
+        {/* Text Container - text-center */}
+        <div className="flex flex-col items-center justify-center text-center">
           {/* Top Label: Tiny elegant gold uppercase tag */}
           {label && (
-            <span className="font-cinzel text-[10px] sm:text-[11px] font-bold tracking-[0.25em] text-[#9E7719] uppercase block leading-none mb-1">
+            <span className="font-cinzel text-[10px] font-bold tracking-[0.22em] text-[#9E7719] uppercase block leading-none mb-0.5 text-center">
               {label}
             </span>
           )}
 
           {/* Main Value: Deep antique bronze (#7A5813) */}
-          <span className="font-cinzel sm:font-inter font-bold text-sm sm:text-[13.5px] text-[#7A5813] tracking-wide block leading-snug">
+          <span className="font-cinzel font-bold text-xs sm:text-sm text-[#7A5813] tracking-wide block leading-tight text-center uppercase">
             {text}
           </span>
 
           {subtext && (
-            <span className="font-inter text-xs text-[#555555] block mt-0.5">
+            <span className="font-inter text-xs text-[#555555] block mt-0.5 text-center">
               {subtext}
             </span>
           )}

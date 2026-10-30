@@ -140,27 +140,27 @@ export const HeroSection = () => {
         </div>
 
         {/* 3. SAVE THE DATE: Tracked uppercase lettering directly above the 3 info cards */}
-        <div className="my-3 text-center">
+        <div className="pt-2 pb-1 text-center">
           <span className="font-cinzel text-sm sm:text-base tracking-[0.3em] sm:tracking-[0.35em] text-[#8C6A16] font-bold uppercase inline-block">
             ✦ SAVE THE DATE ✦
           </span>
         </div>
 
-        {/* 4. Upgraded Luxury Royal Badges (Date, Time, Place) */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-md mx-auto mb-6">
+        {/* 4. Compact Centered Luxury Royal Badges (Date, Time, Place) */}
+        <div className="flex flex-col gap-2.5 max-w-[280px] mx-auto mt-4 mb-6">
           <BracketPill 
             label="DATE"
-            icon={<Calendar className="w-4 h-4 sm:w-4.5 sm:h-4.5" />} 
+            icon={<Calendar className="w-4 h-4 text-[#7A5813]" />} 
             text="Nov 16, 2026" 
           />
           <BracketPill 
             label="TIME"
-            icon={<Clock className="w-4 h-4 sm:w-4.5 sm:h-4.5" />} 
+            icon={<Clock className="w-4 h-4 text-[#7A5813]" />} 
             text="6:00 PM IST" 
           />
           <BracketPill 
             label="PLACE"
-            icon={<MapPin className="w-4 h-4 sm:w-4.5 sm:h-4.5" />} 
+            icon={<MapPin className="w-4 h-4 text-[#7A5813]" />} 
             text="Coimbatore" 
             href={mapsUrl}
           />
