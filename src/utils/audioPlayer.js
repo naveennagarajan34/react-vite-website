@@ -1,4 +1,4 @@
-// Auspicious Indian Wedding Tanpura & Shehnai Synthesizer via Web Audio API
+// Auspicious Wedding Audio Player supporting custom BGM with Web Audio synth fallback
 class WeddingAudioPlayer {
   constructor() {
     this.ctx = null;
@@ -6,22 +6,52 @@ class WeddingAudioPlayer {
     this.oscillators = [];
     this.gainNodes = [];
     this.intervalId = null;
+    this.audioElement = null;
+    this.usingSynthFallback = false;
   }
 
-  init() {
-    if (!this.ctx) {
-      const AudioCtx = window.AudioContext || window.webkitAudioContext;
-      this.ctx = new AudioCtx();
+  initAudioElement() {
+    if (!this.audioElement && typeof Audio !== 'undefined') {
+      try {
+        const audio = new Audio('/bgm.mp3');
+        audio.loop = true;
+        audio.volume = 0.65;
+        this.audioElement = audio;
+      } catch (e) {
+        console.warn('Could not initialize audio element', e);
+      }
     }
   }
 
   start() {
     if (this.isPlaying) return;
-    this.init();
+    this.isPlaying = true;
+
+    this.initAudioElement();
+
+    if (this.audioElement) {
+      const playPromise = this.audioElement.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((err) => {
+          console.warn('HTML5 audio play failed, falling back to Web Audio synth', err);
+          this.startSynth();
+        });
+        return;
+      }
+    }
+
+    this.startSynth();
+  }
+
+  startSynth() {
+    this.usingSynthFallback = true;
+    if (!this.ctx) {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      this.ctx = new AudioCtx();
+    }
     if (this.ctx.state === 'suspended') {
       this.ctx.resume();
     }
-    this.isPlaying = true;
 
     // Master Volume
     const masterGain = this.ctx.createGain();
@@ -100,6 +130,11 @@ class WeddingAudioPlayer {
 
   stop() {
     this.isPlaying = false;
+    if (this.audioElement) {
+      try {
+        this.audioElement.pause();
+      } catch (e) {}
+    }
     if (this.intervalId) {
       clearInterval(this.intervalId);
       this.intervalId = null;
@@ -112,6 +147,7 @@ class WeddingAudioPlayer {
     });
     this.oscillators = [];
     this.gainNodes = [];
+    this.usingSynthFallback = false;
   }
 
   toggle() {
