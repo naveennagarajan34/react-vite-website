@@ -89,7 +89,7 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
 
         {/* Couple Names */}
         <h1 className="font-cinzel text-2xl sm:text-3xl font-bold text-[#8C6A16] tracking-wider mt-2">
-          S. Guhan &amp; J. Harshini
+          Guhan &amp; Harshini
         </h1>
         <p className="font-playfair text-xs sm:text-sm tracking-[0.25em] text-[#1F1F1F] uppercase font-semibold mt-1.5">
           Wedding Invitation

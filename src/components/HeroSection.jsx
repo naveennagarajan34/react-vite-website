@@ -102,14 +102,14 @@ export const HeroSection = () => {
           WE’RE GETTING MARRIED!
         </h2>
 
-        {/* 2. Couple Names: S. GUHAN & J. HARSHINI in Rich Antique Gold with Sharp Edges */}
+        {/* 2. Couple Names: GUHAN & HARSHINI in Rich Antique Gold with Sharp Edges */}
         <div 
           onClick={triggerShowerConfetti}
           title="Tap to shower blessings!"
           className="my-4 cursor-pointer select-none group transition-transform active:scale-98"
         >
           <h1 className="font-cinzel text-3xl xs:text-4xl sm:text-5xl font-bold tracking-wider text-[#8C6A16] gold-shimmer-text leading-tight group-hover:scale-[1.01] transition-transform">
-            S. GUHAN
+            GUHAN
           </h1>
           <div className="flex items-center justify-center space-x-3 my-2">
             <span className="font-cormorant italic text-2xl sm:text-3xl text-[#9E7719] font-medium px-2">
@@ -117,7 +117,7 @@ export const HeroSection = () => {
             </span>
           </div>
           <h1 className="font-cinzel text-3xl xs:text-4xl sm:text-5xl font-bold tracking-wider text-[#8C6A16] gold-shimmer-text leading-tight group-hover:scale-[1.01] transition-transform">
-            J. HARSHINI
+            HARSHINI
           </h1>
           <span className="inline-flex items-center space-x-1 text-[11px] sm:text-xs text-[#8C6A16] font-inter font-medium mt-1.5 opacity-75 group-hover:opacity-100 transition-opacity">
             <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
@@ -190,16 +190,13 @@ export const HeroSection = () => {
         {/* Decorative Floral Divider directly leading into Final Blessings Note */}
         <FloralSectionDivider className="my-5" />
 
-        {/* Final Blessings Note & Couple Signature */}
-        <div className="text-center space-y-1.5 max-w-md mx-auto">
+        {/* Final Blessings Note */}
+        <div className="text-center space-y-2 max-w-md mx-auto mb-2">
           <p className="font-cormorant italic text-lg sm:text-xl text-[#1F1F1F] leading-relaxed">
             Your presence and blessings are our greatest gift.
           </p>
           <p className="font-cormorant italic text-lg sm:text-xl text-[#1F1F1F] leading-relaxed">
             Looking forward to seeing you all on the stage!
-          </p>
-          <p className="font-cinzel font-bold text-lg sm:text-xl text-[#8C6A16] pt-1">
-            — Guhan &amp; Harshini
           </p>
         </div>
 

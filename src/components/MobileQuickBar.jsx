@@ -2,9 +2,9 @@ import React from 'react';
 import { Calendar, Navigation, MessageCircle } from 'lucide-react';
 
 export const MobileQuickBar = () => {
-  const calendarTitle = encodeURIComponent("Wedding Reception — S. Guhan & J. Harshini");
+  const calendarTitle = encodeURIComponent("Wedding Reception — Guhan & Harshini");
   const calendarDetails = encodeURIComponent(
-    "Together with our families, S. Guhan & J. Harshini invite you to celebrate our Wedding Reception.\n\nSchedule:\n6:00 PM: Reception & Stage Greetings\n7:30 PM Onwards: Dinner to follow\n\nVenue: Chinnasamy Gounder Kalyanamandapam, Kulathupalayam, Kovaipudur, Coimbatore – 641 042"
+    "Together with our families, Guhan & Harshini invite you to celebrate our Wedding Reception.\n\nSchedule:\n6:00 PM: Reception & Stage Greetings\n7:30 PM Onwards: Dinner to follow\n\nVenue: Chinnasamy Gounder Kalyanamandapam, Kulathupalayam, Kovaipudur, Coimbatore – 641 042"
   );
   const calendarLocation = encodeURIComponent(
     "Chinnasamy Gounder Kalyanamandapam, Kulathupalayam, Kovaipudur, Coimbatore – 641 042"
@@ -19,7 +19,7 @@ export const MobileQuickBar = () => {
     const currentUrl = typeof window !== 'undefined' ? window.location.href : 'https://guhan-harshini.wedding';
     const message = 
       `✨ *Wedding Reception Invitation* ✨\n\n` +
-      `Together with our families, *S. Guhan & J. Harshini* warmly invite you to celebrate our Wedding Reception!\n\n` +
+      `Together with our families, *Guhan & Harshini* warmly invite you to celebrate our Wedding Reception!\n\n` +
       `📅 *Date:* Monday, November 16, 2026\n` +
       `⏰ *Time:* 6:00 PM to 9:00 PM IST\n` +
       `📍 *Venue:* Chinnasamy Gounder Kalyanamandapam, Kulathupalayam, Kovaipudur, Coimbatore\n\n` +
