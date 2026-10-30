@@ -140,6 +140,22 @@ body {
   animation: subtleGoldGlow 1.8s ease-out forwards;
 }
 
+/* Royal Wax Seal Breathe & Glow Animation */
+@keyframes sealBreathe {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 10px 24px rgba(90, 50, 10, 0.35));
+  }
+  50% {
+    transform: scale(1.04);
+    filter: drop-shadow(0 14px 30px rgba(212, 175, 55, 0.55));
+  }
+}
+
+.animate-seal-breathe {
+  animation: sealBreathe 3.5s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

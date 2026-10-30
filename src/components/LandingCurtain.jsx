@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { PosterCornerOrnament } from './OrnamentalMotifs';
-import { Sparkles } from 'lucide-react';
 
 export const LandingCurtain = ({ onOpen, playBgm }) => {
   const [isAnimating, setIsAnimating] = useState(false);
@@ -163,15 +162,78 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
           )}
         </div>
 
-        {/* Animated Pulsing Call-to-Action Badge */}
-        <div className="mt-3">
-          <div className="inline-flex items-center space-x-2 bg-[#FFFFFF] border-2 border-[#D4AF37] px-6 py-2.5 rounded-full shadow-[0_4px_16px_rgba(212,175,55,0.25)] hover:scale-105 active:scale-95 transition-all animate-pulse">
-            <Sparkles className="w-4 h-4 text-[#8C6A16]" />
-            <span className="font-cinzel text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-[#8C6A16]">
-              {isAnimating ? 'Opening Invitation...' : '✦ Tap to Open Invitation ✦'}
-            </span>
-            <Sparkles className="w-4 h-4 text-[#8C6A16]" />
+        {/* Royal Gold Wax Seal Button Centered Beneath the Rings */}
+        <div className="mt-3 flex flex-col items-center">
+          <div
+            className={`relative cursor-pointer transition-all duration-500 ease-out ${
+              isAnimating 
+                ? 'scale-125 opacity-0 pointer-events-none' 
+                : 'hover:scale-105 active:scale-95 animate-seal-breathe'
+            }`}
+          >
+            {/* Scalloped / Wavy Gold Wax Seal SVG with Deep Drop Shadow */}
+            <svg
+              viewBox="0 0 120 120"
+              className="w-24 h-24 sm:w-28 sm:h-28 drop-shadow-[0_16px_28px_rgba(74,44,10,0.45)]"
+            >
+              <defs>
+                {/* Metallic Gold Base Gradient */}
+                <radialGradient id="waxBaseGrad" cx="35%" cy="30%" r="70%">
+                  <stop offset="0%" stopColor="#FFFBF0" />
+                  <stop offset="20%" stopColor="#F5D880" />
+                  <stop offset="50%" stopColor="#D4AF37" />
+                  <stop offset="80%" stopColor="#8C6A16" />
+                  <stop offset="100%" stopColor="#4A3208" />
+                </radialGradient>
+                {/* Recessed Center Seal Bed Radial Gradient */}
+                <radialGradient id="waxCenterGrad" cx="38%" cy="32%" r="62%">
+                  <stop offset="0%" stopColor="#FFFDF7" />
+                  <stop offset="25%" stopColor="#F9DF92" />
+                  <stop offset="65%" stopColor="#B8861B" />
+                  <stop offset="90%" stopColor="#7A520E" />
+                  <stop offset="100%" stopColor="#4D3307" />
+                </radialGradient>
+              </defs>
+
+              {/* 1. Scalloped / Wavy Wax Seal Outer Silhouette */}
+              <path
+                d="M 115.80 60.00 L 111.75 65.10 L 107.27 69.40 L 109.76 75.09 L 111.55 81.35 L 105.86 84.51 L 100.08 86.78 L 100.20 92.99 L 99.46 99.46 L 92.99 100.20 L 86.78 100.08 L 84.51 105.86 L 81.35 111.55 L 75.09 109.76 L 69.40 107.27 L 65.10 111.75 L 60.00 115.80 L 54.90 111.75 L 50.60 107.27 L 44.91 109.76 L 38.65 111.55 L 35.49 105.86 L 33.22 100.08 L 27.01 100.20 L 20.54 99.46 L 19.80 92.99 L 19.92 86.78 L 14.14 84.51 L 8.45 81.35 L 10.24 75.09 L 12.73 69.40 L 8.25 65.10 L 4.20 60.00 L 8.25 54.90 L 12.73 50.60 L 10.24 44.91 L 8.45 38.65 L 14.14 35.49 L 19.92 33.22 L 19.80 27.01 L 20.54 20.54 L 27.01 19.80 L 33.22 19.92 L 35.49 14.14 L 38.65 8.45 L 44.91 10.24 L 50.60 12.73 L 54.90 8.25 L 60.00 4.20 L 65.10 8.25 L 69.40 12.73 L 75.09 10.24 L 81.35 8.45 L 84.51 14.14 L 86.78 19.92 L 92.99 19.80 L 99.46 20.54 L 100.20 27.01 L 100.08 33.22 L 105.86 35.49 L 111.55 38.65 L 109.76 44.91 L 107.27 50.60 L 111.75 54.90 L 115.80 60.00 Z"
+                fill="url(#waxBaseGrad)"
+                stroke="#5A410D"
+                strokeWidth="1.2"
+              />
+
+              {/* 2. Ornate Concentric Rim (Raised Beveled Borders) */}
+              <circle cx="60" cy="60" r="45" stroke="#FFF7DE" strokeWidth="1.6" fill="none" opacity="0.8" />
+              <circle cx="60" cy="60" r="43" stroke="#68460A" strokeWidth="1.8" fill="none" opacity="0.65" />
+              <circle cx="60" cy="60" r="40" stroke="#FFE79A" strokeWidth="1" strokeDasharray="2 3" fill="none" opacity="0.9" />
+
+              {/* 3. Recessed Center Wax Bed */}
+              <circle cx="60" cy="60" r="36" fill="url(#waxCenterGrad)" stroke="#4A3006" strokeWidth="1.5" />
+              <circle cx="60" cy="60" r="34" stroke="#FFF8E0" strokeWidth="0.8" fill="none" opacity="0.6" />
+
+              {/* 4. Embossed Serif Monogram "G & H" */}
+              <text
+                x="60"
+                y="66"
+                textAnchor="middle"
+                fontFamily="'Cinzel', serif"
+                fontWeight="900"
+                fontSize="20"
+                fill="#FFFBF2"
+                style={{
+                  filter: 'drop-shadow(0 1.5px 2px rgba(60, 35, 5, 0.75))',
+                }}
+              >
+                G &amp; H
+              </text>
+            </svg>
           </div>
+
+          {/* Bottom Helper Text Prompt */}
+          <span className="font-cinzel text-xs sm:text-sm font-bold tracking-[0.25em] text-[#8C6A16] uppercase mt-3.5 block animate-pulse select-none">
+            {isAnimating ? '✦ Opening Invitation... ✦' : '✦ Tap Seal to Open ✦'}
+          </span>
         </div>
 
       </div>
