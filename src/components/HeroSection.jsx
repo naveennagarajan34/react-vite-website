@@ -146,18 +146,21 @@ export const HeroSection = () => {
           </span>
         </div>
 
-        {/* 4. Horizontal 3-Pill Container with Neat Gold-Bracket Borders */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 max-w-md mx-auto mb-6">
+        {/* 4. Upgraded Luxury Royal Badges (Date, Time, Place) */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-md mx-auto mb-6">
           <BracketPill 
-            icon={<Calendar className="w-5 h-5" />} 
+            label="DATE"
+            icon={<Calendar className="w-4 h-4 sm:w-4.5 sm:h-4.5" />} 
             text="Nov 16, 2026" 
           />
           <BracketPill 
-            icon={<Clock className="w-5 h-5" />} 
+            label="TIME"
+            icon={<Clock className="w-4 h-4 sm:w-4.5 sm:h-4.5" />} 
             text="6:00 PM IST" 
           />
           <BracketPill 
-            icon={<MapPin className="w-5 h-5" />} 
+            label="PLACE"
+            icon={<MapPin className="w-4 h-4 sm:w-4.5 sm:h-4.5" />} 
             text="Coimbatore" 
             href={mapsUrl}
           />

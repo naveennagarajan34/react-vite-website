@@ -113,29 +113,53 @@ export const FloralSectionDivider = ({ className = "my-6" }) => (
 // Gold Divider with ornamental diamond
 export const GoldDivider = FloralSectionDivider;
 
-// Bracket Border Pill Container (Matching the latest poster design [Date, Time, Location])
-export const BracketPill = ({ icon, text, subtext, href, onClick }) => {
+// Luxury Royal Event Badge with Architectural Bracket Frame, Embossed Emblem & Golden Glow
+export const BracketPill = ({ label, icon, text, subtext, href, onClick, className = '' }) => {
   const content = (
-    <div className="relative group bg-[#F9F6F0] px-3.5 py-3 transition-all duration-300 hover:bg-[#FAF4E6] flex items-center justify-center space-x-2 text-center rounded-sm">
-      {/* Outer Bracket Border */}
-      <div className="absolute inset-0 border border-[#9E7719] rounded-sm pointer-events-none" />
-      {/* 4 Bracket Corners */}
-      <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-[#8C6A16] pointer-events-none" />
-      <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-[#8C6A16] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-[#8C6A16] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-[#8C6A16] pointer-events-none" />
+    <div className={`relative group p-3 sm:py-3.5 sm:px-2 bg-gradient-to-b from-[#FFFFFF] to-[#FAF5ED] border border-[#E6D3A3] rounded-2xl shadow-[0_4px_16px_rgba(184,134,11,0.08)] hover:shadow-[0_8px_24px_rgba(184,134,11,0.18)] hover:border-[#D4AF37] transition-all duration-300 ease-out transform hover:-translate-y-1 active:translate-y-0 active:scale-[0.99] overflow-hidden flex flex-col justify-center ${className}`}>
       
-      {/* Icon & Label */}
-      <div className="flex items-center justify-center space-x-2 z-10">
-        <span className="text-[#8C6A16] flex-shrink-0 group-hover:scale-110 transition-transform">
+      {/* Subtle Golden Border Shimmer Overlay on Hover */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-[#D4AF37]/0 via-[#FAF4E6]/25 to-[#D4AF37]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+      {/* Inner Metallic Gold Hairline Frame (#D4AF37) */}
+      <div className="absolute inset-1 sm:inset-1.5 border border-[#D4AF37]/50 rounded-xl pointer-events-none transition-colors duration-300 group-hover:border-[#D4AF37]" />
+
+      {/* Small Corner Diamond Florets */}
+      <span className="absolute top-1 left-1 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/25 pointer-events-none group-hover:scale-110 transition-transform" />
+      <span className="absolute top-1 right-1 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/25 pointer-events-none group-hover:scale-110 transition-transform" />
+      <span className="absolute bottom-1 left-1 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/25 pointer-events-none group-hover:scale-110 transition-transform" />
+      <span className="absolute bottom-1 right-1 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/25 pointer-events-none group-hover:scale-110 transition-transform" />
+
+      {/* Moroccan / Temple Arch Bracket Notches */}
+      <div className="absolute top-0.5 left-0.5 w-2 h-2 border-t-2 border-l-2 border-[#D4AF37] rounded-tl-sm pointer-events-none" />
+      <div className="absolute top-0.5 right-0.5 w-2 h-2 border-t-2 border-r-2 border-[#D4AF37] rounded-tr-sm pointer-events-none" />
+      <div className="absolute bottom-0.5 left-0.5 w-2 h-2 border-b-2 border-l-2 border-[#D4AF37] rounded-bl-sm pointer-events-none" />
+      <div className="absolute bottom-0.5 right-0.5 w-2 h-2 border-b-2 border-r-2 border-[#D4AF37] rounded-br-sm pointer-events-none" />
+
+      {/* Card Content Layout */}
+      <div className="relative z-10 flex items-center space-x-3 sm:flex-col sm:space-x-0 sm:space-y-1.5 text-left sm:text-center w-full px-1">
+        
+        {/* Embossed Circular Gold Foil Emblem */}
+        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-[#FFFFFF] via-[#F8F1E1] to-[#EAD29A] border border-[#D4AF37] shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.9),0_2px_6px_rgba(140,106,22,0.18)] flex items-center justify-center text-[#7A5813] flex-shrink-0 group-hover:scale-105 group-hover:shadow-[0_0_12px_rgba(212,175,55,0.35)] transition-all">
           {icon}
-        </span>
-        <div className="text-left sm:text-center leading-tight">
-          <span className="font-inter font-semibold text-sm sm:text-base text-[#1F1F1F] block">
+        </div>
+
+        {/* Text Container */}
+        <div className="min-w-0 flex-1 sm:w-full">
+          {/* Top Label: Tiny elegant gold uppercase tag */}
+          {label && (
+            <span className="font-cinzel text-[10px] sm:text-[11px] font-bold tracking-[0.25em] text-[#9E7719] uppercase block leading-none mb-1">
+              {label}
+            </span>
+          )}
+
+          {/* Main Value: Deep antique bronze (#7A5813) */}
+          <span className="font-cinzel sm:font-inter font-bold text-sm sm:text-[13.5px] text-[#7A5813] tracking-wide block leading-snug">
             {text}
           </span>
+
           {subtext && (
-            <span className="font-inter text-xs text-[#555555] block">
+            <span className="font-inter text-xs text-[#555555] block mt-0.5">
               {subtext}
             </span>
           )}
@@ -146,7 +170,7 @@ export const BracketPill = ({ icon, text, subtext, href, onClick }) => {
 
   if (href) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className="block focus:outline-none focus:ring-1 focus:ring-[#8C6A16]">
+      <a href={href} target="_blank" rel="noopener noreferrer" className="block focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/50 rounded-2xl">
         {content}
       </a>
     );
@@ -154,7 +178,7 @@ export const BracketPill = ({ icon, text, subtext, href, onClick }) => {
 
   if (onClick) {
     return (
-      <button type="button" onClick={onClick} className="w-full text-left focus:outline-none">
+      <button type="button" onClick={onClick} className="w-full text-left focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/50 rounded-2xl">
         {content}
       </button>
     );
@@ -162,6 +186,8 @@ export const BracketPill = ({ icon, text, subtext, href, onClick }) => {
 
   return content;
 };
+
+export const LuxuryEventBadge = BracketPill;
 
 // Subtle Geometric Header Divider for the sticky ribbon
 export const ThoranamHeader = () => (
