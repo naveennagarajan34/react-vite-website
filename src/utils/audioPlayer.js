@@ -16,6 +16,7 @@ class WeddingAudioPlayer {
   }
 
   start() {
+    if (this.isPlaying) return;
     this.init();
     if (this.ctx.state === 'suspended') {
       this.ctx.resume();

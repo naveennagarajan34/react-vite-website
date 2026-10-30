@@ -4,6 +4,7 @@ import { InvitationNote } from './components/InvitationNote';
 import { MobileQuickBar } from './components/MobileQuickBar';
 import { ThoranamHeader } from './components/OrnamentalMotifs';
 import { FallingPetalsCanvas } from './components/FallingPetalsCanvas';
+import { LandingCurtain } from './components/LandingCurtain';
 import { weddingAudio } from './utils/audioPlayer';
 import { Volume2, VolumeX } from 'lucide-react';
 
@@ -15,8 +16,16 @@ export default function App() {
     setIsPlayingMusic(isPlaying);
   };
 
+  const handleLandingOpen = () => {
+    weddingAudio.start();
+    setIsPlayingMusic(true);
+  };
+
   return (
     <div className="min-h-screen bg-royal-bg-pattern text-[#333333] flex flex-col relative selection:bg-[#D4AF37] selection:text-[#1A1A1A] font-inter">
+      {/* Interactive Welcome Landing Screen Overlay with Ring Exchange */}
+      <LandingCurtain onOpen={handleLandingOpen} />
+
       {/* Dynamic Golden Flower Petals Background System */}
       <FallingPetalsCanvas />
 
