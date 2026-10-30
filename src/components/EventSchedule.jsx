@@ -1,5 +1,6 @@
 import React from 'react';
 import { CornerOrnament, GoldDivider } from './OrnamentalMotifs';
+import { motion } from 'framer-motion';
 import { Calendar, Clock, MapPin, Utensils, Camera, ChevronRight } from 'lucide-react';
 
 export const EventSchedule = () => {
@@ -25,7 +26,13 @@ export const EventSchedule = () => {
         </div>
 
         {/* Schedule Main Card with Dynamic Hover Lift */}
-        <div className="luxury-card relative bg-[#FFFFFF] border border-[#D4AF37] rounded-2xl px-4 py-8 sm:p-8 shadow-[0_12px_32px_rgba(0,0,0,0.06)]">
+        <motion.div
+          initial={{ opacity: 0, y: 45, filter: "blur(4px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, amount: 0.35, margin: "0px 0px -80px 0px" }}
+          transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+          className="luxury-card relative bg-[#FFFFFF] border border-[#D4AF37] rounded-2xl px-4 py-8 sm:p-8 shadow-[0_12px_32px_rgba(0,0,0,0.06)]"
+        >
           <CornerOrnament className="absolute top-2.5 left-2.5 w-7 h-7 text-[#D4AF37]" position="top-left" />
           <CornerOrnament className="absolute top-2.5 right-2.5 w-7 h-7 text-[#D4AF37]" position="top-right" />
           <CornerOrnament className="absolute bottom-2.5 left-2.5 w-7 h-7 text-[#D4AF37]" position="bottom-left" />
@@ -126,7 +133,7 @@ export const EventSchedule = () => {
             </div>
 
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
