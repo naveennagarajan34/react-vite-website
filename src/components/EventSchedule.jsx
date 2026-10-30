@@ -3,6 +3,43 @@ import { CornerOrnament, GoldDivider } from './OrnamentalMotifs';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, MapPin, Utensils, Camera, ChevronRight } from 'lucide-react';
 
+// Dancing / Waving Text Effect for Royal Date Line
+const WavyDateText = ({ text = "Monday, November 16, 2026" }) => {
+  const words = text.split(" ");
+  let charCounter = 0;
+
+  return (
+    <span className="font-playfair font-semibold tracking-wider text-[#8C6A16] text-base sm:text-lg inline-flex flex-wrap items-center justify-center gap-x-1.5 select-none">
+      {words.map((word, wordIdx) => {
+        const letters = word.split("");
+        return (
+          <span key={wordIdx} className="inline-block whitespace-nowrap">
+            {letters.map((char, charIdx) => {
+              const delay = charCounter * 0.06;
+              charCounter += 1;
+              return (
+                <motion.span
+                  key={charIdx}
+                  className="inline-block"
+                  animate={{ y: [0, -4, 0] }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 2.5,
+                    ease: "easeInOut",
+                    delay: delay,
+                  }}
+                >
+                  {char}
+                </motion.span>
+              );
+            })}
+          </span>
+        );
+      })}
+    </span>
+  );
+};
+
 export const EventSchedule = () => {
   const directionsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     'Chinnasamy Gounder Kalyanamandapam, Kulathupalayam, Kovaipudur, Coimbatore, Tamil Nadu 641042'
@@ -51,9 +88,7 @@ export const EventSchedule = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4 text-base sm:text-lg mt-2">
               <div className="flex items-center space-x-2 text-[#8C6A16]">
                 <Calendar className="w-5 h-5 text-[#8C6A16] flex-shrink-0" />
-                <span className="font-playfair font-semibold tracking-wider text-[#8C6A16] text-base sm:text-lg">
-                  Monday, November 16, 2026
-                </span>
+                <WavyDateText text="Monday, November 16, 2026" />
               </div>
               <div className="hidden sm:inline text-[#D4AF37]">•</div>
               <div className="flex items-center space-x-2 text-[#8C6A16]">
