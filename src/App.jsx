@@ -66,7 +66,7 @@ export default function App() {
         {/* 4. Venue & Directions */}
         <VenueNavigation />
 
-        {/* 5. Footer & Blessings with Gold Confetti Guest Wishes */}
+        {/* 5. Footer & Blessings */}
         <FooterBlessings />
       </main>
 
