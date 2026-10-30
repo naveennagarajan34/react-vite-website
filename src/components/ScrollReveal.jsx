@@ -9,10 +9,11 @@ export const ScrollReveal = ({
   className = '',
   animation = 'fade-up', // 'fade-up' | 'scale-up' | 'glow-reveal'
   delay = 0,
-  duration = 0.8,
-  yOffset = 24,
+  duration = 1.3,
+  yOffset = 16,
   once = true,
-  margin = '-40px',
+  margin = '0px 0px -25px 0px',
+  threshold = 0.1,
   as: Component = 'div',
   ...props
 }) => {
@@ -41,7 +42,7 @@ export const ScrollReveal = ({
       },
       {
         rootMargin: margin,
-        threshold: 0.12,
+        threshold: threshold,
       }
     );
 
@@ -50,20 +51,20 @@ export const ScrollReveal = ({
     return () => {
       observer.disconnect();
     };
-  }, [once, margin]);
+  }, [once, margin, threshold]);
 
   let transformHidden = `translate3d(0, ${yOffset}px, 0)`;
   let transformVisible = 'translate3d(0, 0, 0)';
 
   if (animation === 'scale-up') {
-    transformHidden = `translate3d(0, ${yOffset}px, 0) scale(0.96)`;
+    transformHidden = `translate3d(0, ${yOffset}px, 0) scale(0.98)`;
     transformVisible = 'translate3d(0, 0, 0) scale(1)';
   }
 
   const baseStyle = {
     transitionProperty: 'opacity, transform, box-shadow, filter',
     transitionDuration: `${duration}s`,
-    transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)', // smooth easeOut
+    transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)', // silky high-end deceleration
     transitionDelay: `${delay}s`,
     willChange: 'opacity, transform',
     opacity: isVisible ? 1 : 0,
@@ -85,3 +86,4 @@ export const ScrollReveal = ({
     </Component>
   );
 };
+

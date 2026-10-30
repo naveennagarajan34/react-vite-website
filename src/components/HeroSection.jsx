@@ -78,8 +78,8 @@ export const HeroSection = () => {
       {/* Main Luxury Frame Card with Classic Gold Filigree Corners (Soft Upward Fade & Gentle Scale-In) */}
       <ScrollReveal
         animation="scale-up"
-        duration={0.8}
-        yOffset={28}
+        duration={1.3}
+        yOffset={18}
         className="luxury-card relative max-w-xl mx-auto bg-[#FFFFFF] border-2 border-[#D4AF37] rounded-3xl p-5 sm:p-11 shadow-[0_16px_40px_rgba(0,0,0,0.06)] overflow-hidden"
       >
         {/* Four Classic Victorian Filigree Corner Flourishes */}
@@ -96,7 +96,7 @@ export const HeroSection = () => {
         <div className="absolute inset-2 sm:inset-3 border border-[#E6D3A3] rounded-2xl pointer-events-none" />
 
         {/* 1. Header Cleanup: Clean, arched tracked styling + delicate filigree divider */}
-        <ScrollReveal animation="fade-up" duration={0.7} yOffset={16} className="pt-2 sm:pt-4 pb-1">
+        <ScrollReveal animation="fade-up" duration={1.2} yOffset={15} className="pt-2 sm:pt-4 pb-1">
           <span className="font-cinzel text-xs sm:text-sm text-[#8C6A16] tracking-[0.28em] sm:tracking-[0.35em] uppercase font-bold block">
             WITH THE BLESSINGS OF ALMIGHTY
           </span>
@@ -104,14 +104,14 @@ export const HeroSection = () => {
         </ScrollReveal>
 
         {/* Headline with comfortable vertical breathing room */}
-        <ScrollReveal animation="fade-up" delay={0.1} duration={0.7} yOffset={18}>
+        <ScrollReveal animation="fade-up" delay={0.1} duration={1.2} yOffset={15}>
           <h2 className="font-playfair text-xl sm:text-2xl tracking-[0.2em] sm:tracking-[0.25em] text-[#1F1F1F] uppercase font-bold mt-2 mb-4">
             WE’RE GETTING MARRIED!
           </h2>
         </ScrollReveal>
 
         {/* 2. Couple Names: GUHAN & HARSHINI in Rich Antique Gold with Sharp Edges (Scale-in & Soft Upward Fade) */}
-        <ScrollReveal animation="scale-up" delay={0.15} duration={0.8} yOffset={20}>
+        <ScrollReveal animation="scale-up" delay={0.15} duration={1.3} yOffset={16}>
           <div 
             onClick={triggerShowerConfetti}
             title="Tap to shower blessings!"
@@ -136,7 +136,7 @@ export const HeroSection = () => {
         </ScrollReveal>
 
         {/* Tagline in Crisp Deep Charcoal (#1F1F1F) */}
-        <ScrollReveal animation="fade-up" delay={0.2} duration={0.7} yOffset={16}>
+        <ScrollReveal animation="fade-up" delay={0.2} duration={1.2} yOffset={15}>
           <p className="font-cormorant italic text-lg sm:text-2xl text-[#1F1F1F] max-w-md mx-auto leading-relaxed mt-4 mb-5 font-normal px-2">
             &ldquo;Together with our families, we invite you to celebrate our new beginning.&rdquo;
           </p>
@@ -152,29 +152,29 @@ export const HeroSection = () => {
         </ScrollReveal>
 
         {/* 3. SAVE THE DATE: Tracked uppercase lettering directly above the 3 info cards */}
-        <ScrollReveal animation="fade-up" delay={0.1} duration={0.7} yOffset={18} className="pt-2 pb-1 text-center">
+        <ScrollReveal animation="fade-up" delay={0.1} duration={1.2} yOffset={15} className="pt-2 pb-1 text-center">
           <span className="font-cinzel text-sm sm:text-base tracking-[0.3em] sm:tracking-[0.35em] text-[#8C6A16] font-bold uppercase inline-block">
             ✦ SAVE THE DATE ✦
           </span>
         </ScrollReveal>
 
-        {/* 4. Compact Centered Luxury Royal Badges: Staggered entry from bottom to top (staggerChildren: 0.15s) */}
+        {/* 4. Compact Centered Luxury Royal Badges: Staggered entry from bottom to top (stagger interval: 0.22s) */}
         <div className="flex flex-col gap-2.5 max-w-[280px] mx-auto mt-4 mb-6">
-          <ScrollReveal animation="fade-up" delay={0.15} duration={0.65} yOffset={20}>
+          <ScrollReveal animation="fade-up" delay={0.15} duration={1.2} yOffset={16}>
             <BracketPill 
               label="DATE"
               icon={<Calendar className="w-4 h-4 text-[#7A5813]" />} 
               text="Nov 16, 2026" 
             />
           </ScrollReveal>
-          <ScrollReveal animation="fade-up" delay={0.30} duration={0.65} yOffset={20}>
+          <ScrollReveal animation="fade-up" delay={0.37} duration={1.2} yOffset={16}>
             <BracketPill 
               label="TIME"
               icon={<Clock className="w-4 h-4 text-[#7A5813]" />} 
               text="6:00 PM IST" 
             />
           </ScrollReveal>
-          <ScrollReveal animation="fade-up" delay={0.45} duration={0.65} yOffset={20}>
+          <ScrollReveal animation="fade-up" delay={0.59} duration={1.2} yOffset={16}>
             <BracketPill 
               label="PLACE"
               icon={<MapPin className="w-4 h-4 text-[#7A5813]" />} 
@@ -188,7 +188,7 @@ export const HeroSection = () => {
         <FloralSectionDivider className="my-6" />
 
         {/* 5. EVENT SCHEDULE Section: Elegant slide-up as it enters viewport */}
-        <ScrollReveal animation="fade-up" duration={0.8} yOffset={24} className="text-center space-y-1.5 max-w-md mx-auto">
+        <ScrollReveal animation="fade-up" duration={1.3} yOffset={18} className="text-center space-y-1.5 max-w-md mx-auto">
           <h3 className="font-cinzel text-base sm:text-lg font-bold text-[#8C6A16] tracking-[0.2em] uppercase">
             EVENT SCHEDULE
           </h3>
@@ -209,7 +209,7 @@ export const HeroSection = () => {
         <FloralSectionDivider className="my-5" />
 
         {/* Final Blessings Note: Smooth fade-in */}
-        <ScrollReveal animation="fade-up" duration={0.8} yOffset={20} className="text-center space-y-2 max-w-md mx-auto mb-2">
+        <ScrollReveal animation="fade-up" duration={1.3} yOffset={16} className="text-center space-y-2 max-w-md mx-auto mb-2">
           <p className="font-cormorant italic text-lg sm:text-xl text-[#1F1F1F] leading-relaxed">
             Your presence and blessings are our greatest gift.
           </p>
@@ -219,7 +219,7 @@ export const HeroSection = () => {
         </ScrollReveal>
 
         {/* 8. Live Countdown to the Auspicious Moment: Fade-in with a subtle golden glow flash on reveal */}
-        <ScrollReveal animation="glow-reveal" duration={0.8} yOffset={24} className="mt-8 pt-6 border-t border-[#E6D3A3]">
+        <ScrollReveal animation="glow-reveal" duration={1.3} yOffset={18} className="mt-8 pt-6 border-t border-[#E6D3A3]">
           <p className="font-cinzel text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#8C6A16] mb-4 font-bold">
             Counting Down To The Auspicious Moment
           </p>

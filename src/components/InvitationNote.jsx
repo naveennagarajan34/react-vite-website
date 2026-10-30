@@ -9,8 +9,8 @@ export const InvitationNote = () => {
         {/* Pure Clean White Card with Refined Gold Border & Ambient Shadow */}
         <ScrollReveal
           animation="scale-up"
-          duration={0.8}
-          yOffset={24}
+          duration={1.3}
+          yOffset={18}
           className="luxury-card relative bg-[#FFFFFF] text-[#1F1F1F] rounded-3xl p-5 sm:p-9 shadow-[0_16px_40px_rgba(0,0,0,0.06)] border-2 border-[#D4AF37] overflow-hidden"
         >
           {/* Subtle warm ivory pattern watermark */}
