@@ -1,30 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import bgmAudio from './bgm.mp3';
 import { HeroSection } from './components/HeroSection';
 import { InvitationNote } from './components/InvitationNote';
 import { MobileQuickBar } from './components/MobileQuickBar';
 import { ThoranamHeader } from './components/OrnamentalMotifs';
 import { FallingPetalsCanvas } from './components/FallingPetalsCanvas';
 import { LandingCurtain } from './components/LandingCurtain';
-import { weddingAudio } from './utils/audioPlayer';
 import { Volume2, VolumeX } from 'lucide-react';
 
 export default function App() {
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
+  const audioRef = useRef(typeof Audio !== 'undefined' ? new Audio(bgmAudio) : null);
 
-  const toggleMusic = () => {
-    const isPlaying = weddingAudio.toggle();
-    setIsPlayingMusic(isPlaying);
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.loop = true;
+      audioRef.current.muted = false;
+      audioRef.current.volume = 0.5;
+
+      const handlePlay = () => setIsPlayingMusic(true);
+      const handlePause = () => setIsPlayingMusic(false);
+
+      audioRef.current.addEventListener('play', handlePlay);
+      audioRef.current.addEventListener('pause', handlePause);
+
+      return () => {
+        if (audioRef.current) {
+          audioRef.current.removeEventListener('play', handlePlay);
+          audioRef.current.removeEventListener('pause', handlePause);
+          audioRef.current.pause();
+        }
+      };
+    }
+  }, []);
+
+  const playBgm = () => {
+    if (audioRef.current) {
+      audioRef.current.muted = false;
+      audioRef.current.volume = 0.5;
+      audioRef.current.play().then(() => {
+        setIsPlayingMusic(true);
+      }).catch((err) => {
+        console.warn('Audio playback was prevented:', err);
+      });
+    }
   };
 
-  const handleLandingOpen = () => {
-    weddingAudio.start();
-    setIsPlayingMusic(true);
+  const toggleMusic = () => {
+    if (!audioRef.current) return;
+    if (isPlayingMusic) {
+      audioRef.current.pause();
+      setIsPlayingMusic(false);
+    } else {
+      playBgm();
+    }
   };
 
   return (
     <div className="min-h-screen bg-royal-bg-pattern text-[#333333] flex flex-col relative selection:bg-[#D4AF37] selection:text-[#1A1A1A] font-inter">
       {/* Interactive Welcome Landing Screen Overlay with Ring Exchange */}
-      <LandingCurtain onOpen={handleLandingOpen} />
+      <LandingCurtain playBgm={playBgm} onOpen={playBgm} />
 
       {/* Dynamic Golden Flower Petals Background System */}
       <FallingPetalsCanvas />
@@ -36,33 +71,22 @@ export default function App() {
         <div className="zari-border-bottom" />
       </div>
 
-      {/* Floating Ambient Music Audio Button with Dynamic Equalizer */}
-      <div className="fixed top-12 right-3 sm:right-5 z-40">
+      {/* Floating Circular Sound Button in Top-Right Corner */}
+      <div className="fixed top-5 right-4 sm:top-6 sm:right-6 z-40">
         <button
           onClick={toggleMusic}
           type="button"
-          aria-label={isPlayingMusic ? "Mute traditional wedding music" : "Play traditional wedding music"}
-          className={`min-h-[44px] min-w-[44px] flex items-center justify-center space-x-2 px-3.5 py-2 rounded-full text-sm font-semibold backdrop-blur-md shadow-md transition-all ${
+          aria-label={isPlayingMusic ? "Pause background music" : "Play background music"}
+          className={`w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md shadow-lg transition-all duration-300 active:scale-95 ${
             isPlayingMusic 
-              ? 'bg-[#D4AF37] text-[#1A1A1A] ring-2 ring-[#E6D3A3] shadow-[0_0_20px_rgba(212,175,55,0.4)] animate-pulse'
-              : 'bg-[#F9F6F0]/95 text-[#8C6A16] border border-[#E6D3A3] hover:bg-[#F3EDE2] shadow-sm'
+              ? 'bg-[#D4AF37] text-[#1A1A1A] ring-2 ring-[#FAF4E6] shadow-[0_0_20px_rgba(212,175,55,0.45)] animate-pulse'
+              : 'bg-[#FFFFFF]/90 text-[#8C6A16] border border-[#E6D3A3] hover:bg-[#F9F6F0] shadow-md'
           }`}
         >
           {isPlayingMusic ? (
-            <>
-              <Volume2 className="w-4 h-4 text-[#1A1A1A]" />
-              <span className="hidden sm:inline font-cinzel text-xs font-bold">Nadaswaram Playing</span>
-              <span className="flex items-end space-x-0.5 h-3 ml-1" aria-hidden="true">
-                <span className="w-0.5 bg-[#1A1A1A] h-3 animate-bounce" />
-                <span className="w-0.5 bg-[#1A1A1A] h-1.5 animate-pulse" />
-                <span className="w-0.5 bg-[#1A1A1A] h-2.5 animate-bounce" />
-              </span>
-            </>
+            <Volume2 className="w-5 h-5 text-[#1A1A1A]" />
           ) : (
-            <>
-              <VolumeX className="w-4 h-4 text-[#8C6A16]" />
-              <span className="hidden sm:inline font-cinzel text-xs font-bold">Play Shehnai</span>
-            </>
+            <VolumeX className="w-5 h-5 text-[#8C6A16]" />
           )}
         </button>
       </div>

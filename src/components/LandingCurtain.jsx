@@ -3,7 +3,7 @@ import confetti from 'canvas-confetti';
 import { PosterCornerOrnament, FloralFiligreeDivider } from './OrnamentalMotifs';
 import { Sparkles } from 'lucide-react';
 
-export const LandingCurtain = ({ onOpen }) => {
+export const LandingCurtain = ({ onOpen, playBgm }) => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [isOpened, setIsOpened] = useState(false);
   const [isUnmounted, setIsUnmounted] = useState(false);
@@ -13,7 +13,9 @@ export const LandingCurtain = ({ onOpen }) => {
     setIsAnimating(true);
 
     // 1. Play background wedding audio (unblocked by this user gesture)
-    if (onOpen) {
+    if (typeof playBgm === 'function') {
+      playBgm();
+    } else if (typeof onOpen === 'function') {
       onOpen();
     }
 
@@ -184,3 +186,4 @@ export const LandingCurtain = ({ onOpen }) => {
     </div>
   );
 };
+
