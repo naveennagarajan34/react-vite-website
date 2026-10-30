@@ -10,6 +10,7 @@ import { Volume2, VolumeX } from 'lucide-react';
 
 export default function App() {
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
+  const [isCurtainOpened, setIsCurtainOpened] = useState(false);
   const audioRef = useRef(typeof Audio !== 'undefined' ? new Audio(bgmAudio) : null);
 
   useEffect(() => {
@@ -56,10 +57,16 @@ export default function App() {
     }
   };
 
+  const handleLandingOpen = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    playBgm();
+    setIsCurtainOpened(true);
+  };
+
   return (
     <div className="min-h-screen bg-royal-bg-pattern text-[#333333] flex flex-col relative selection:bg-[#D4AF37] selection:text-[#1A1A1A] font-inter">
       {/* Interactive Welcome Landing Screen Overlay with Ring Exchange */}
-      <LandingCurtain playBgm={playBgm} onOpen={playBgm} />
+      <LandingCurtain playBgm={handleLandingOpen} onOpen={handleLandingOpen} />
 
       {/* Dynamic Golden Flower Petals Background System */}
       <FallingPetalsCanvas />
@@ -101,7 +108,7 @@ export default function App() {
       </main>
 
       {/* 5. Sticky Mobile Quick Action Bar (with Directions button) */}
-      <MobileQuickBar />
+      <MobileQuickBar isOpen={isCurtainOpened} />
     </div>
   );
 }

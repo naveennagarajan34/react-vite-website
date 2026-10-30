@@ -1,7 +1,9 @@
 import React from 'react';
 import { Calendar, Navigation, MessageCircle } from 'lucide-react';
 
-export const MobileQuickBar = () => {
+export const MobileQuickBar = ({ isOpen = false }) => {
+  if (!isOpen) return null;
+
   const calendarTitle = encodeURIComponent("Wedding Reception — Guhan & Harshini");
   const calendarDetails = encodeURIComponent(
     "Together with our families, Guhan & Harshini invite you to celebrate our Wedding Reception.\n\nSchedule:\n6:00 PM: Reception & Stage Greetings\n7:30 PM Onwards: Dinner to follow\n\nVenue: Chinnasamy Gounder Kalyanamandapam, Kulathupalayam, Kovaipudur, Coimbatore – 641 042"
@@ -33,7 +35,7 @@ export const MobileQuickBar = () => {
   return (
     <nav 
       aria-label="Quick Actions"
-      className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-[#E6D3A3] shadow-[0_-4px_20px_rgba(0,0,0,0.06)] py-2 px-2.5 xs:px-3 sm:px-6 transition-all"
+      className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#E6D3A3] shadow-[0_-4px_20px_rgba(0,0,0,0.06)] py-2 px-2.5 xs:px-3 sm:px-6 transition-all animate-fade-in"
       style={{ paddingBottom: 'max(0.65rem, env(safe-area-inset-bottom))' }}
     >
       <div className="max-w-md mx-auto grid grid-cols-3 gap-2">

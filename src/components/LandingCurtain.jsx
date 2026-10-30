@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import { PosterCornerOrnament } from './OrnamentalMotifs';
 
@@ -7,9 +7,25 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
   const [isOpened, setIsOpened] = useState(false);
   const [isUnmounted, setIsUnmounted] = useState(false);
 
+  useEffect(() => {
+    // Lock scrolling while curtain is active and guarantee top position
+    if (!isOpened) {
+      document.body.style.overflow = 'hidden';
+      window.scrollTo(0, 0);
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpened]);
+
   const handleTapOpen = () => {
     if (isAnimating || isOpened) return;
     setIsAnimating(true);
+
+    // Guarantee the page is at the very top when opening
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 
     // 1. Play background wedding audio (unblocked by this user gesture)
     if (typeof playBgm === 'function') {
@@ -48,7 +64,7 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
       role="button"
       tabIndex={0}
       aria-label="Tap to open wedding invitation"
-      className={`fixed inset-0 z-50 flex flex-col items-center justify-center select-none cursor-pointer overflow-hidden bg-[#F9F6F0] transition-all duration-1000 ease-in-out ${
+      className={`fixed inset-0 z-[60] flex flex-col items-center justify-center select-none cursor-pointer overflow-hidden bg-[#F9F6F0] transition-all duration-1000 ease-in-out ${
         isOpened 
           ? 'opacity-0 pointer-events-none -translate-y-12' 
           : 'opacity-100 pointer-events-auto translate-y-0'
