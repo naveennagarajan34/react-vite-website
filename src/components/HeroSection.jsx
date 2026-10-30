@@ -8,6 +8,7 @@ import {
   BracketPill, 
   GoldDivider 
 } from './OrnamentalMotifs';
+import { ScrollReveal } from './ScrollReveal';
 import { Calendar, Clock, MapPin, Sparkles } from 'lucide-react';
 
 export const HeroSection = () => {
@@ -74,8 +75,13 @@ export const HeroSection = () => {
       {/* Dynamic Background Warm Aura */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 sm:w-[460px] h-80 sm:h-[460px] bg-[#D4AF37]/15 rounded-full blur-3xl pointer-events-none animate-pulse-slow" />
 
-      {/* Main Luxury Frame Card with Classic Gold Filigree Corners */}
-      <div className="luxury-card relative max-w-xl mx-auto bg-[#FFFFFF] border-2 border-[#D4AF37] rounded-3xl p-5 sm:p-11 shadow-[0_16px_40px_rgba(0,0,0,0.06)] overflow-hidden">
+      {/* Main Luxury Frame Card with Classic Gold Filigree Corners (Soft Upward Fade & Gentle Scale-In) */}
+      <ScrollReveal
+        animation="scale-up"
+        duration={0.8}
+        yOffset={28}
+        className="luxury-card relative max-w-xl mx-auto bg-[#FFFFFF] border-2 border-[#D4AF37] rounded-3xl p-5 sm:p-11 shadow-[0_16px_40px_rgba(0,0,0,0.06)] overflow-hidden"
+      >
         {/* Four Classic Victorian Filigree Corner Flourishes */}
         <PosterCornerOrnament position="top-left" />
         <PosterCornerOrnament position="top-right" />
@@ -90,87 +96,99 @@ export const HeroSection = () => {
         <div className="absolute inset-2 sm:inset-3 border border-[#E6D3A3] rounded-2xl pointer-events-none" />
 
         {/* 1. Header Cleanup: Clean, arched tracked styling + delicate filigree divider */}
-        <div className="pt-2 sm:pt-4 pb-1">
+        <ScrollReveal animation="fade-up" duration={0.7} yOffset={16} className="pt-2 sm:pt-4 pb-1">
           <span className="font-cinzel text-xs sm:text-sm text-[#8C6A16] tracking-[0.28em] sm:tracking-[0.35em] uppercase font-bold block">
             WITH THE BLESSINGS OF ALMIGHTY
           </span>
           <FloralFiligreeDivider className="mt-2.5 mb-4" />
-        </div>
+        </ScrollReveal>
 
         {/* Headline with comfortable vertical breathing room */}
-        <h2 className="font-playfair text-xl sm:text-2xl tracking-[0.2em] sm:tracking-[0.25em] text-[#1F1F1F] uppercase font-bold mt-2 mb-4">
-          WE’RE GETTING MARRIED!
-        </h2>
+        <ScrollReveal animation="fade-up" delay={0.1} duration={0.7} yOffset={18}>
+          <h2 className="font-playfair text-xl sm:text-2xl tracking-[0.2em] sm:tracking-[0.25em] text-[#1F1F1F] uppercase font-bold mt-2 mb-4">
+            WE’RE GETTING MARRIED!
+          </h2>
+        </ScrollReveal>
 
-        {/* 2. Couple Names: GUHAN & HARSHINI in Rich Antique Gold with Sharp Edges */}
-        <div 
-          onClick={triggerShowerConfetti}
-          title="Tap to shower blessings!"
-          className="my-4 cursor-pointer select-none group transition-transform active:scale-98"
-        >
-          <h1 className="font-cinzel text-3xl xs:text-4xl sm:text-5xl font-bold tracking-wider text-[#8C6A16] gold-shimmer-text leading-tight group-hover:scale-[1.01] transition-transform">
-            GUHAN
-          </h1>
-          <div className="flex items-center justify-center space-x-3 my-2">
-            <span className="font-cormorant italic text-2xl sm:text-3xl text-[#9E7719] font-medium px-2">
-              weds
+        {/* 2. Couple Names: GUHAN & HARSHINI in Rich Antique Gold with Sharp Edges (Scale-in & Soft Upward Fade) */}
+        <ScrollReveal animation="scale-up" delay={0.15} duration={0.8} yOffset={20}>
+          <div 
+            onClick={triggerShowerConfetti}
+            title="Tap to shower blessings!"
+            className="my-4 cursor-pointer select-none group transition-transform active:scale-98"
+          >
+            <h1 className="font-cinzel text-3xl xs:text-4xl sm:text-5xl font-bold tracking-wider text-[#8C6A16] gold-shimmer-text leading-tight group-hover:scale-[1.01] transition-transform">
+              GUHAN
+            </h1>
+            <div className="flex items-center justify-center space-x-3 my-2">
+              <span className="font-cormorant italic text-2xl sm:text-3xl text-[#9E7719] font-medium px-2">
+                weds
+              </span>
+            </div>
+            <h1 className="font-cinzel text-3xl xs:text-4xl sm:text-5xl font-bold tracking-wider text-[#8C6A16] gold-shimmer-text leading-tight group-hover:scale-[1.01] transition-transform">
+              HARSHINI
+            </h1>
+            <span className="inline-flex items-center space-x-1 text-[11px] sm:text-xs text-[#8C6A16] font-inter font-medium mt-1.5 opacity-75 group-hover:opacity-100 transition-opacity">
+              <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
+              <span>Tap names for golden blessings ✨</span>
             </span>
           </div>
-          <h1 className="font-cinzel text-3xl xs:text-4xl sm:text-5xl font-bold tracking-wider text-[#8C6A16] gold-shimmer-text leading-tight group-hover:scale-[1.01] transition-transform">
-            HARSHINI
-          </h1>
-          <span className="inline-flex items-center space-x-1 text-[11px] sm:text-xs text-[#8C6A16] font-inter font-medium mt-1.5 opacity-75 group-hover:opacity-100 transition-opacity">
-            <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span>Tap names for golden blessings ✨</span>
-          </span>
-        </div>
+        </ScrollReveal>
 
         {/* Tagline in Crisp Deep Charcoal (#1F1F1F) */}
-        <p className="font-cormorant italic text-lg sm:text-2xl text-[#1F1F1F] max-w-md mx-auto leading-relaxed mt-4 mb-5 font-normal px-2">
-          &ldquo;Together with our families, we invite you to celebrate our new beginning.&rdquo;
-        </p>
+        <ScrollReveal animation="fade-up" delay={0.2} duration={0.7} yOffset={16}>
+          <p className="font-cormorant italic text-lg sm:text-2xl text-[#1F1F1F] max-w-md mx-auto leading-relaxed mt-4 mb-5 font-normal px-2">
+            &ldquo;Together with our families, we invite you to celebrate our new beginning.&rdquo;
+          </p>
 
-        {/* Wedding Reception Gold Ribbon Badge */}
-        <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#9E7719] via-[#D4AF37] to-[#9E7719] text-[#FFFFFF] px-7 py-2 rounded-full shadow-sm mb-4 border border-[#8C6A16]">
-          <span className="text-white text-xs">♥</span>
-          <span className="font-cinzel text-xs sm:text-sm tracking-widest font-bold uppercase drop-shadow-sm">
-            WEDDING RECEPTION
-          </span>
-          <span className="text-white text-xs">♥</span>
-        </div>
+          {/* Wedding Reception Gold Ribbon Badge */}
+          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#9E7719] via-[#D4AF37] to-[#9E7719] text-[#FFFFFF] px-7 py-2 rounded-full shadow-sm mb-4 border border-[#8C6A16]">
+            <span className="text-white text-xs">♥</span>
+            <span className="font-cinzel text-xs sm:text-sm tracking-widest font-bold uppercase drop-shadow-sm">
+              WEDDING RECEPTION
+            </span>
+            <span className="text-white text-xs">♥</span>
+          </div>
+        </ScrollReveal>
 
         {/* 3. SAVE THE DATE: Tracked uppercase lettering directly above the 3 info cards */}
-        <div className="pt-2 pb-1 text-center">
+        <ScrollReveal animation="fade-up" delay={0.1} duration={0.7} yOffset={18} className="pt-2 pb-1 text-center">
           <span className="font-cinzel text-sm sm:text-base tracking-[0.3em] sm:tracking-[0.35em] text-[#8C6A16] font-bold uppercase inline-block">
             ✦ SAVE THE DATE ✦
           </span>
-        </div>
+        </ScrollReveal>
 
-        {/* 4. Compact Centered Luxury Royal Badges (Date, Time, Place) */}
+        {/* 4. Compact Centered Luxury Royal Badges: Staggered entry from bottom to top (staggerChildren: 0.15s) */}
         <div className="flex flex-col gap-2.5 max-w-[280px] mx-auto mt-4 mb-6">
-          <BracketPill 
-            label="DATE"
-            icon={<Calendar className="w-4 h-4 text-[#7A5813]" />} 
-            text="Nov 16, 2026" 
-          />
-          <BracketPill 
-            label="TIME"
-            icon={<Clock className="w-4 h-4 text-[#7A5813]" />} 
-            text="6:00 PM IST" 
-          />
-          <BracketPill 
-            label="PLACE"
-            icon={<MapPin className="w-4 h-4 text-[#7A5813]" />} 
-            text="Coimbatore" 
-            href={mapsUrl}
-          />
+          <ScrollReveal animation="fade-up" delay={0.15} duration={0.65} yOffset={20}>
+            <BracketPill 
+              label="DATE"
+              icon={<Calendar className="w-4 h-4 text-[#7A5813]" />} 
+              text="Nov 16, 2026" 
+            />
+          </ScrollReveal>
+          <ScrollReveal animation="fade-up" delay={0.30} duration={0.65} yOffset={20}>
+            <BracketPill 
+              label="TIME"
+              icon={<Clock className="w-4 h-4 text-[#7A5813]" />} 
+              text="6:00 PM IST" 
+            />
+          </ScrollReveal>
+          <ScrollReveal animation="fade-up" delay={0.45} duration={0.65} yOffset={20}>
+            <BracketPill 
+              label="PLACE"
+              icon={<MapPin className="w-4 h-4 text-[#7A5813]" />} 
+              text="Coimbatore" 
+              href={mapsUrl}
+            />
+          </ScrollReveal>
         </div>
 
         {/* Decorative Floral Divider */}
         <FloralSectionDivider className="my-6" />
 
-        {/* 5. EVENT SCHEDULE Section (Matching the latest poster design) */}
-        <div className="text-center space-y-1.5 max-w-md mx-auto">
+        {/* 5. EVENT SCHEDULE Section: Elegant slide-up as it enters viewport */}
+        <ScrollReveal animation="fade-up" duration={0.8} yOffset={24} className="text-center space-y-1.5 max-w-md mx-auto">
           <h3 className="font-cinzel text-base sm:text-lg font-bold text-[#8C6A16] tracking-[0.2em] uppercase">
             EVENT SCHEDULE
           </h3>
@@ -185,23 +203,23 @@ export const HeroSection = () => {
               <span className="font-semibold text-[#8C6A16]">7:30 PM</span> — Dinner to follow
             </p>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Decorative Floral Divider directly leading into Final Blessings Note */}
         <FloralSectionDivider className="my-5" />
 
-        {/* Final Blessings Note */}
-        <div className="text-center space-y-2 max-w-md mx-auto mb-2">
+        {/* Final Blessings Note: Smooth fade-in */}
+        <ScrollReveal animation="fade-up" duration={0.8} yOffset={20} className="text-center space-y-2 max-w-md mx-auto mb-2">
           <p className="font-cormorant italic text-lg sm:text-xl text-[#1F1F1F] leading-relaxed">
             Your presence and blessings are our greatest gift.
           </p>
           <p className="font-cormorant italic text-lg sm:text-xl text-[#1F1F1F] leading-relaxed">
             Looking forward to seeing you all on the stage!
           </p>
-        </div>
+        </ScrollReveal>
 
-        {/* 8. Live Countdown to the Auspicious Moment */}
-        <div className="mt-8 pt-6 border-t border-[#E6D3A3]">
+        {/* 8. Live Countdown to the Auspicious Moment: Fade-in with a subtle golden glow flash on reveal */}
+        <ScrollReveal animation="glow-reveal" duration={0.8} yOffset={24} className="mt-8 pt-6 border-t border-[#E6D3A3]">
           <p className="font-cinzel text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#8C6A16] mb-4 font-bold">
             Counting Down To The Auspicious Moment
           </p>
@@ -251,9 +269,9 @@ export const HeroSection = () => {
               </div>
             </div>
           )}
-        </div>
+        </ScrollReveal>
 
-      </div>
+      </ScrollReveal>
     </section>
   );
 };

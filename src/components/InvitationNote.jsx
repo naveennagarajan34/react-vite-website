@@ -1,12 +1,18 @@
 import React from 'react';
 import { PosterCornerOrnament } from './OrnamentalMotifs';
+import { ScrollReveal } from './ScrollReveal';
 
 export const InvitationNote = () => {
   return (
     <section className="py-6 px-2.5 xs:px-3 sm:px-6 relative">
       <div className="max-w-xl mx-auto">
         {/* Pure Clean White Card with Refined Gold Border & Ambient Shadow */}
-        <div className="luxury-card relative bg-[#FFFFFF] text-[#1F1F1F] rounded-3xl p-5 sm:p-9 shadow-[0_16px_40px_rgba(0,0,0,0.06)] border-2 border-[#D4AF37] overflow-hidden">
+        <ScrollReveal
+          animation="scale-up"
+          duration={0.8}
+          yOffset={24}
+          className="luxury-card relative bg-[#FFFFFF] text-[#1F1F1F] rounded-3xl p-5 sm:p-9 shadow-[0_16px_40px_rgba(0,0,0,0.06)] border-2 border-[#D4AF37] overflow-hidden"
+        >
           {/* Subtle warm ivory pattern watermark */}
           <div className="absolute inset-0 bg-[radial-gradient(#E6D3A3_1px,transparent_1px)] [background-size:20px_20px] opacity-25 pointer-events-none" />
           
@@ -57,7 +63,7 @@ export const InvitationNote = () => {
               Guhan &amp; Harshini
             </p>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
