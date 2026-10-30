@@ -40,7 +40,7 @@ export const MobileQuickBar = () => {
   return (
     <nav 
       aria-label="Quick Actions"
-      className="fixed bottom-0 left-0 right-0 z-50 bg-[#250308]/95 backdrop-blur-md border-t-2 border-gold-500/50 shadow-2xl py-2 px-2.5 xs:px-3 sm:px-6 transition-all"
+      className="fixed bottom-0 left-0 right-0 z-50 bg-[#240D26]/95 backdrop-blur-md border-t-2 border-[#E8B4A2]/50 shadow-2xl py-2 px-2.5 xs:px-3 sm:px-6 transition-all"
       style={{ paddingBottom: 'max(0.65rem, env(safe-area-inset-bottom))' }}
     >
       <div className="max-w-md mx-auto grid grid-cols-3 gap-2">
@@ -49,9 +49,9 @@ export const MobileQuickBar = () => {
           href={calendarUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="min-h-[52px] flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-maroon-900/90 hover:bg-gold-500/20 border border-gold-500/30 text-gold-300 hover:text-gold-100 active:scale-95 transition-all group"
+          className="min-h-[52px] flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-[#37173B]/90 hover:bg-[#E8B4A2]/20 border border-[#E8B4A2]/30 text-[#F5C7B8] hover:text-[#FAF4F8] active:scale-95 transition-all group"
         >
-          <Calendar className="w-5 h-5 mb-1 text-gold-400 group-hover:scale-110 transition-transform" />
+          <Calendar className="w-5 h-5 mb-1 text-[#E8B4A2] group-hover:scale-110 transition-transform" />
           <span className="font-inter text-xs xs:text-sm font-bold tracking-tight text-center leading-tight">
             Calendar
           </span>
@@ -61,9 +61,9 @@ export const MobileQuickBar = () => {
         <button
           type="button"
           onClick={handleWhatsAppShare}
-          className="min-h-[52px] flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-gradient-to-b from-gold-500 to-gold-600 text-maroon-950 font-bold active:scale-95 shadow-md shadow-gold-900/50 hover:brightness-105 transition-all group"
+          className="min-h-[52px] flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-gradient-to-b from-[#F5C7B8] to-[#E8B4A2] text-[#240D26] font-bold active:scale-95 shadow-md shadow-[#1A081C]/60 hover:brightness-105 transition-all group"
         >
-          <MessageCircle className="w-5 h-5 mb-1 text-maroon-950 fill-maroon-950 group-hover:scale-110 transition-transform" />
+          <MessageCircle className="w-5 h-5 mb-1 text-[#240D26] fill-[#240D26] group-hover:scale-110 transition-transform" />
           <span className="font-inter text-xs xs:text-sm font-bold tracking-tight text-center leading-tight">
             WhatsApp
           </span>
@@ -74,9 +74,9 @@ export const MobileQuickBar = () => {
           href={directionsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="min-h-[52px] flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-maroon-900/90 hover:bg-gold-500/20 border border-gold-500/30 text-gold-300 hover:text-gold-100 active:scale-95 transition-all group"
+          className="min-h-[52px] flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-[#37173B]/90 hover:bg-[#E8B4A2]/20 border border-[#E8B4A2]/30 text-[#F5C7B8] hover:text-[#FAF4F8] active:scale-95 transition-all group"
         >
-          <Navigation className="w-5 h-5 mb-1 text-gold-400 fill-gold-400/30 group-hover:scale-110 transition-transform" />
+          <Navigation className="w-5 h-5 mb-1 text-[#E8B4A2] fill-[#E8B4A2]/30 group-hover:scale-110 transition-transform" />
           <span className="font-inter text-xs xs:text-sm font-bold tracking-tight text-center leading-tight">
             Directions
           </span>

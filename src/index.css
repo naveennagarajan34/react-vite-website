@@ -9,63 +9,67 @@
 body {
   margin: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: #200307;
-  color: #FAF6F0;
+  background-color: #240D26; /* Deep Blackened Plum */
+  color: #FAF4F8; /* Primary Silky Rose Ivory */
   overflow-x: hidden;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Custom Scrollbar */
+/* Custom Velvet Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #200307;
+  background: #240D26;
 }
 ::-webkit-scrollbar-thumb {
-  background: #AA771C;
+  background: #BA7E6C;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #D4AF37;
+  background: #E8B4A2;
 }
 
-/* Luxury Gold Text Gradient */
-.gold-text-gradient {
-  background: linear-gradient(135deg, #FFF4D0 0%, #F3E5AB 25%, #D4AF37 55%, #AA771C 80%, #F5DEB3 100%);
+/* Luxury Rose Gold Metallic Text Gradient */
+.gold-text-gradient,
+.rosegold-text-gradient {
+  background: linear-gradient(135deg, #FFF8F5 0%, #F5C7B8 25%, #E8B4A2 55%, #BA7E6C 80%, #FDF0EB 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.gold-subtle-gradient {
-  background: linear-gradient(135deg, #FAF6F0 0%, #F3E5AB 50%, #D4AF37 100%);
+.gold-subtle-gradient,
+.rosegold-subtle-gradient {
+  background: linear-gradient(135deg, #FAF4F8 0%, #F5C7B8 50%, #E8B4A2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Luxury Gold Border */
-.gold-border {
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.08);
+/* Polished Rose Gold Borders */
+.gold-border,
+.rosegold-border {
+  border: 1px solid rgba(232, 180, 162, 0.35);
+  box-shadow: 0 0 15px rgba(232, 180, 162, 0.1);
 }
 
-.gold-border-highlight {
-  border: 1px solid rgba(212, 175, 55, 0.65);
-  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15), inset 0 0 15px rgba(212, 175, 55, 0.05);
+.gold-border-highlight,
+.rosegold-border-highlight {
+  border: 1px solid rgba(232, 180, 162, 0.65);
+  box-shadow: 0 4px 20px rgba(232, 180, 162, 0.2), inset 0 0 15px rgba(232, 180, 162, 0.08);
 }
 
-/* Traditional South Indian Saree Border (Zari) pattern */
+/* Evening Reception Rose Gold & Mulberry Zari Ribbon */
 .zari-border-top {
   background-image: repeating-linear-gradient(
     90deg,
-    #D4AF37,
-    #D4AF37 6px,
-    #855810 6px,
-    #855810 12px,
-    #F3E5AB 12px,
-    #F3E5AB 18px,
-    #4A0E17 18px,
-    #4A0E17 24px
+    #E8B4A2,
+    #E8B4A2 6px,
+    #9C6150 6px,
+    #9C6150 12px,
+    #F5C7B8 12px,
+    #F5C7B8 18px,
+    #37173B 18px,
+    #37173B 24px
   );
   height: 4px;
 }
@@ -73,23 +77,23 @@ body {
 .zari-border-bottom {
   background-image: repeating-linear-gradient(
     90deg,
-    #D4AF37,
-    #D4AF37 6px,
-    #855810 6px,
-    #855810 12px,
-    #F3E5AB 12px,
-    #F3E5AB 18px,
-    #4A0E17 18px,
-    #4A0E17 24px
+    #E8B4A2,
+    #E8B4A2 6px,
+    #9C6150 6px,
+    #9C6150 12px,
+    #F5C7B8 12px,
+    #F5C7B8 18px,
+    #37173B 18px,
+    #37173B 24px
   );
   height: 4px;
 }
 
-/* Background Royal Pattern Overlay */
+/* Velvet Plum Deep Royal Pattern Overlay */
 .royal-bg-pattern {
-  background-color: #2b050c;
-  background-image: radial-gradient(circle at 50% 50%, #4A0E17 0%, #360810 50%, #200307 100%),
-    radial-gradient(rgba(212, 175, 55, 0.04) 1px, transparent 0);
+  background-color: #240D26;
+  background-image: radial-gradient(circle at 50% 50%, #37173B 0%, #2B102E 50%, #240D26 100%),
+    radial-gradient(rgba(232, 180, 162, 0.05) 1px, transparent 0);
   background-size: 100% 100%, 24px 24px;
 }
 

@@ -19,8 +19,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-royal-bg-pattern text-ivory-100 flex flex-col relative selection:bg-gold-500 selection:text-maroon-950 font-inter">
-      {/* Top Auspicious Zari Ribbon & Thoranam */}
-      <div className="sticky top-0 z-40 bg-maroon-950/90 backdrop-blur-sm border-b border-gold-500/30">
+      {/* Top Auspicious Zari Ribbon & Thoranam (Velvet Plum & Polished Rose Gold) */}
+      <div className="sticky top-0 z-40 bg-[#240D26]/95 backdrop-blur-sm border-b border-[#E8B4A2]/30">
         <div className="zari-border-top" />
         <ThoranamHeader />
         <div className="zari-border-bottom" />
@@ -34,18 +34,18 @@ export default function App() {
           aria-label={isPlayingMusic ? "Mute traditional wedding music" : "Play traditional wedding music"}
           className={`min-h-[44px] min-w-[44px] flex items-center justify-center space-x-2 px-3.5 py-2 rounded-full text-sm font-semibold backdrop-blur-md shadow-lg transition-all ${
             isPlayingMusic 
-              ? 'bg-gold-500 text-maroon-950 ring-2 ring-gold-300 shadow-gold-glow animate-pulse'
-              : 'bg-maroon-900/90 text-gold-300 border border-gold-500/40 hover:bg-gold-500/20'
+              ? 'bg-[#E8B4A2] text-[#240D26] ring-2 ring-[#F5C7B8] shadow-gold-glow animate-pulse'
+              : 'bg-[#37173B]/90 text-[#F5C7B8] border border-[#E8B4A2]/40 hover:bg-[#E8B4A2]/20'
           }`}
         >
           {isPlayingMusic ? (
             <>
-              <Volume2 className="w-4 h-4 text-maroon-950" />
+              <Volume2 className="w-4 h-4 text-[#240D26]" />
               <span className="hidden sm:inline font-cinzel text-xs">Nadaswaram Playing</span>
             </>
           ) : (
             <>
-              <VolumeX className="w-4 h-4 text-gold-400" />
+              <VolumeX className="w-4 h-4 text-[#E8B4A2]" />
               <span className="hidden sm:inline font-cinzel text-xs">Play Shehnai</span>
             </>
           )}

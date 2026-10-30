@@ -35,8 +35,8 @@ export const VenueNavigation = () => {
           </p>
         </div>
 
-        {/* Venue Card */}
-        <div className="relative bg-gradient-to-b from-maroon-900/90 to-maroon-950/95 border border-gold-500/40 rounded-2xl px-4 py-7 sm:p-8 shadow-gold-glow overflow-hidden">
+        {/* Venue Card (Card Canvas: #37173B Warm Mulberry) */}
+        <div className="relative bg-gradient-to-b from-[#37173B]/95 via-[#401B45]/90 to-[#37173B]/95 border border-[#E8B4A2]/40 rounded-2xl px-4 py-7 sm:p-8 shadow-gold-glow overflow-hidden">
           <CornerOrnament className="absolute top-2 left-2 w-7 h-7" position="top-left" />
           <CornerOrnament className="absolute top-2 right-2 w-7 h-7" position="top-right" />
           <CornerOrnament className="absolute bottom-2 left-2 w-7 h-7" position="bottom-left" />
@@ -44,39 +44,39 @@ export const VenueNavigation = () => {
 
           {/* Hall Name Badge */}
           <div className="text-center mb-6">
-            <div className="inline-flex items-center justify-center p-3.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 mb-3 shadow-inner">
-              <MapPin className="w-8 h-8 text-gold-400" />
+            <div className="inline-flex items-center justify-center p-3.5 rounded-full bg-[#E8B4A2]/15 border border-[#E8B4A2]/30 text-[#E8B4A2] mb-3 shadow-inner">
+              <MapPin className="w-8 h-8 text-[#E8B4A2]" />
             </div>
             <h3 className="font-cinzel text-xl sm:text-2xl font-bold gold-text-gradient px-1 leading-snug">
               {venueName}
             </h3>
-            <p className="font-inter text-sm sm:text-base text-gold-300 font-semibold tracking-wider mt-1.5">
+            <p className="font-inter text-sm sm:text-base text-[#F5C7B8] font-semibold tracking-wider mt-1.5">
               Coimbatore, Tamil Nadu
             </p>
           </div>
 
-          {/* Address Box (Bumped to text-base/text-lg for mobile readability) */}
-          <div className="bg-maroon-950/80 border border-gold-500/30 rounded-xl p-4 sm:p-5 mb-6 text-center space-y-2.5">
-            <p className="font-inter text-base sm:text-lg text-ivory-100 font-medium leading-relaxed">
+          {/* Address Box */}
+          <div className="bg-[#240D26]/85 border border-[#E8B4A2]/30 rounded-xl p-4 sm:p-5 mb-6 text-center space-y-2.5">
+            <p className="font-inter text-base sm:text-lg text-[#FAF4F8] font-medium leading-relaxed">
               {venueAddress}
             </p>
-            <div className="pt-2.5 border-t border-gold-500/20">
-              <p className="font-cormorant italic text-base sm:text-lg text-gold-300 leading-relaxed">
-                <span className="font-semibold text-gold-400 not-italic">Landmark:</span> {landmarkInfo}
+            <div className="pt-2.5 border-t border-[#E8B4A2]/20">
+              <p className="font-cormorant italic text-base sm:text-lg text-[#F5C7B8] leading-relaxed">
+                <span className="font-semibold text-[#E8B4A2] not-italic">Landmark:</span> {landmarkInfo}
               </p>
             </div>
           </div>
 
-          {/* Interactive Actions Grid (Ensuring min 48px touch targets & 16px font size) */}
+          {/* Interactive Actions Grid */}
           <div className="space-y-3.5">
-            {/* Primary CTA: Get Directions via Google Maps */}
+            {/* Primary CTA: Get Directions via Google Maps (Polished Rose Gold CTA) */}
             <a
               href={googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full min-h-[50px] flex items-center justify-center space-x-2.5 py-3.5 px-6 rounded-xl bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 text-maroon-950 font-inter font-bold text-base shadow-lg shadow-gold-900/40 hover:shadow-gold-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all"
+              className="w-full min-h-[50px] flex items-center justify-center space-x-2.5 py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#F5C7B8] via-[#E8B4A2] to-[#D39885] text-[#240D26] font-inter font-bold text-base shadow-lg shadow-[#1A081C]/50 hover:shadow-[#E8B4A2]/40 hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
-              <Navigation className="w-5 h-5 text-maroon-950 fill-maroon-950" />
+              <Navigation className="w-5 h-5 text-[#240D26] fill-[#240D26]" />
               <span>Get Directions via Google Maps</span>
               <ExternalLink className="w-4 h-4 ml-1 opacity-80" />
             </a>
@@ -85,7 +85,7 @@ export const VenueNavigation = () => {
             <button
               onClick={handleCopyAddress}
               type="button"
-              className="w-full min-h-[48px] flex items-center justify-center space-x-2 py-3.5 px-5 rounded-xl bg-maroon-950/80 border border-gold-500/40 text-gold-300 font-inter text-base font-semibold hover:bg-gold-500/10 hover:text-gold-200 active:scale-[0.98] transition-all"
+              className="w-full min-h-[48px] flex items-center justify-center space-x-2 py-3.5 px-5 rounded-xl bg-[#240D26]/85 border border-[#E8B4A2]/40 text-[#F5C7B8] font-inter text-base font-semibold hover:bg-[#E8B4A2]/15 hover:text-[#FAF4F8] active:scale-[0.98] transition-all"
             >
               {copied ? (
                 <>
@@ -94,7 +94,7 @@ export const VenueNavigation = () => {
                 </>
               ) : (
                 <>
-                  <Copy className="w-5 h-5 text-gold-400" />
+                  <Copy className="w-5 h-5 text-[#E8B4A2]" />
                   <span>Copy Venue Address</span>
                 </>
               )}
@@ -102,9 +102,9 @@ export const VenueNavigation = () => {
           </div>
 
           {/* Travel Assistance / Connectivity note */}
-          <div className="mt-6 pt-4 border-t border-gold-500/20 text-center">
-            <div className="flex items-center justify-center space-x-2 text-sm sm:text-base text-ivory-200/90 font-inter leading-relaxed">
-              <Compass className="w-4 h-4 text-gold-400 flex-shrink-0" />
+          <div className="mt-6 pt-4 border-t border-[#E8B4A2]/20 text-center">
+            <div className="flex items-center justify-center space-x-2 text-sm sm:text-base text-[#FAF4F8]/80 font-inter leading-relaxed">
+              <Compass className="w-4 h-4 text-[#E8B4A2] flex-shrink-0" />
               <span>Well connected from Coimbatore Junction (~11 km) and Ukkadam Bus Stand (~9 km).</span>
             </div>
           </div>

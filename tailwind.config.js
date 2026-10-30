@@ -7,28 +7,55 @@ export default {
   theme: {
     extend: {
       colors: {
-        maroon: {
-          950: '#200307',
-          900: '#360810',
-          800: '#4A0E17',
-          700: '#5E121E',
-          600: '#7B1827',
+        // Velvet Plum & Warm Mulberry palette
+        plum: {
+          950: '#1A081C',
+          900: '#240D26', // Deep Blackened Plum (Background)
+          800: '#37173B', // Warm Mulberry (Card Canvas)
+          700: '#4B1E51',
+          600: '#63266B',
+          500: '#7D2E87',
         },
+        // Mapping maroon to Velvet Plum for seamless backward compatibility
+        maroon: {
+          950: '#1A081C',
+          900: '#240D26', // Deep Blackened Plum
+          800: '#37173B', // Warm Mulberry
+          700: '#4B1E51',
+          600: '#63266B',
+        },
+        // Silky Soft Rose Ivory
         ivory: {
           50: '#FFFFFF',
-          100: '#FAF6F0',
-          200: '#F5EFEB',
-          300: '#EBE2D5',
+          100: '#FAF4F8', // Primary Text: #FAF4F8
+          200: '#F5EAF1',
+          300: '#EAD9E4',
         },
+        // Polished Rose Gold palette
+        rosegold: {
+          50: '#FFF8F5',
+          100: '#FDF0EB',
+          200: '#F9DFD5',
+          300: '#F5C7B8', // Text Highlight: #F5C7B8
+          400: '#EFBDB0',
+          500: '#E8B4A2', // Accents & Borders: #E8B4A2
+          600: '#D39885',
+          700: '#BA7E6C',
+          800: '#9C6150',
+          900: '#7D4536',
+        },
+        // Mapping gold to Polished Rose Gold
         gold: {
-          100: '#FDF8E8',
-          200: '#F9ECC5',
-          300: '#F3E5AB',
-          400: '#E5C158',
-          500: '#D4AF37',
-          600: '#B8860B',
-          700: '#AA771C',
-          800: '#855810',
+          50: '#FFF8F5',
+          100: '#FDF0EB',
+          200: '#F9DFD5',
+          300: '#F5C7B8', // Secondary Text: #F5C7B8
+          400: '#EFBDB0',
+          500: '#E8B4A2', // Accents & Borders: #E8B4A2
+          600: '#D39885',
+          700: '#BA7E6C',
+          800: '#9C6150',
+          900: '#7D4536',
         }
       },
       fontFamily: {
@@ -38,15 +65,16 @@ export default {
         inter: ['Inter', 'sans-serif'],
       },
       backgroundImage: {
-        'gold-shimmer': 'linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA771C 100%)',
-        'gold-radial': 'radial-gradient(ellipse at center, #F3E5AB 0%, #D4AF37 60%, #AA771C 100%)',
-        'maroon-gradient': 'linear-gradient(180deg, #360810 0%, #4A0E17 50%, #360810 100%)',
-        'card-gradient': 'linear-gradient(145deg, rgba(74, 14, 23, 0.85) 0%, rgba(54, 8, 16, 0.95) 100%)',
+        'gold-shimmer': 'linear-gradient(135deg, #FDF0EB 0%, #E8B4A2 50%, #BA7E6C 100%)',
+        'rose-shimmer': 'linear-gradient(135deg, #FDF0EB 0%, #E8B4A2 50%, #BA7E6C 100%)',
+        'gold-radial': 'radial-gradient(ellipse at center, #FDF0EB 0%, #E8B4A2 60%, #9C6150 100%)',
+        'maroon-gradient': 'linear-gradient(180deg, #240D26 0%, #37173B 50%, #240D26 100%)',
+        'card-gradient': 'linear-gradient(145deg, rgba(55, 23, 59, 0.95) 0%, rgba(36, 13, 38, 0.98) 100%)',
       },
       boxShadow: {
-        'gold-glow': '0 0 25px rgba(212, 175, 55, 0.25)',
-        'gold-glow-lg': '0 0 40px rgba(212, 175, 55, 0.4)',
-        'maroon-card': '0 10px 30px -5px rgba(32, 3, 7, 0.5)',
+        'gold-glow': '0 0 25px rgba(232, 180, 162, 0.28)',
+        'gold-glow-lg': '0 0 40px rgba(232, 180, 162, 0.45)',
+        'maroon-card': '0 10px 30px -5px rgba(26, 8, 28, 0.7)',
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
