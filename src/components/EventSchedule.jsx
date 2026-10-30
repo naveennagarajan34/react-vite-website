@@ -41,15 +41,19 @@ export const EventSchedule = () => {
             </h3>
             
             {/* Date & Time */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4 text-base sm:text-lg text-[#222222] mt-2 font-semibold">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4 text-base sm:text-lg mt-2">
               <div className="flex items-center space-x-2 text-[#8C6A16]">
                 <Calendar className="w-5 h-5 text-[#8C6A16] flex-shrink-0" />
-                <span className="font-inter text-[#222222]">Monday, November 16, 2026</span>
+                <span className="font-playfair font-semibold tracking-wider text-[#8C6A16] text-base sm:text-lg">
+                  Monday, November 16, 2026
+                </span>
               </div>
               <div className="hidden sm:inline text-[#D4AF37]">•</div>
               <div className="flex items-center space-x-2 text-[#8C6A16]">
                 <Clock className="w-5 h-5 text-[#8C6A16] flex-shrink-0" />
-                <span className="font-inter text-[#222222]">6:00 PM to 9:00 PM IST</span>
+                <span className="font-playfair font-semibold tracking-wider text-[#5C4314] text-base sm:text-lg">
+                  6:00 PM to 9:00 PM IST
+                </span>
               </div>
             </div>
 

@@ -174,7 +174,7 @@ export const HeroSection = () => {
           <h3 className="font-cinzel text-base sm:text-lg font-bold text-[#8C6A16] tracking-[0.2em] uppercase">
             EVENT SCHEDULE
           </h3>
-          <p className="font-inter text-sm sm:text-base font-semibold text-[#1F1F1F]">
+          <p className="font-playfair text-base sm:text-lg font-semibold tracking-wider text-[#8C6A16]">
             Monday, November 16, 2026
           </p>
           <div className="space-y-1 pt-1 text-sm sm:text-base font-inter text-[#1F1F1F]">
