@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import confetti from 'canvas-confetti';
 import { KalasamIcon, CornerOrnament, GoldDivider } from './OrnamentalMotifs';
-import { Calendar, Clock, MapPin, Heart } from 'lucide-react';
+import { Calendar, Clock, MapPin, Heart, Sparkles } from 'lucide-react';
 
 export const HeroSection = () => {
   // Target: November 16, 2026, 6:00 PM IST (Coimbatore)
@@ -13,6 +14,19 @@ export const HeroSection = () => {
     seconds: 0,
     isExpired: false
   });
+
+  const [celebrated, setCelebrated] = useState(false);
+
+  const triggerShowerConfetti = () => {
+    setCelebrated(true);
+    confetti({
+      particleCount: 75,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ['#D4AF37', '#E6D3A3', '#8C6A16', '#FAF4E6', '#F5E6C8']
+    });
+    setTimeout(() => setCelebrated(false), 2000);
+  };
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -50,11 +64,11 @@ export const HeroSection = () => {
 
   return (
     <section className="relative overflow-hidden pt-6 pb-10 px-3 xs:px-4 sm:px-6 text-center">
-      {/* Decorative Aura / Background Glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-96 h-72 sm:h-96 bg-[#D4AF37]/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Dynamic Ambient Background Glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 sm:w-[420px] h-80 sm:h-[420px] bg-[#D4AF37]/15 rounded-full blur-3xl pointer-events-none animate-pulse-slow" />
 
-      {/* Main Luxury Frame Card: Clean White with Refined Gold Border & Soft Ambient Shadow */}
-      <div className="relative max-w-xl mx-auto bg-[#FFFFFF] border border-[#D4AF37] rounded-2xl px-4 py-8 sm:p-10 shadow-[0_12px_32px_rgba(0,0,0,0.06)]">
+      {/* Main Luxury Frame Card with Dynamic Hover Lift */}
+      <div className="luxury-card relative max-w-xl mx-auto bg-[#FFFFFF] border border-[#D4AF37] rounded-2xl px-4 py-8 sm:p-10 shadow-[0_12px_32px_rgba(0,0,0,0.06)]">
         {/* Four Corner Ornaments */}
         <CornerOrnament className="absolute top-2.5 left-2.5 w-7 h-7 sm:w-8 sm:h-8" position="top-left" />
         <CornerOrnament className="absolute top-2.5 right-2.5 w-7 h-7 sm:w-8 sm:h-8" position="top-right" />
@@ -73,7 +87,7 @@ export const HeroSection = () => {
           </span>
         </div>
 
-        {/* Central Kalasam Icon */}
+        {/* Central Kalasam Icon with Floating Animation */}
         <div className="my-3 flex justify-center">
           <div className="p-3.5 bg-[#F9F6F0] border border-[#E6D3A3] rounded-full shadow-sm animate-float">
             <KalasamIcon className="w-14 h-14 sm:w-16 sm:h-16" />
@@ -88,9 +102,13 @@ export const HeroSection = () => {
         {/* Gold Divider */}
         <GoldDivider className="my-3" />
 
-        {/* Couple Names in Deep Antique Gold */}
-        <div className="my-5">
-          <h1 className="font-cinzel text-[2rem] xs:text-[2.25rem] sm:text-5xl font-bold tracking-wider text-[#8C6A16] leading-tight">
+        {/* Couple Names with Continuous Shimmer Wave & Tap to Shower Confetti */}
+        <div 
+          onClick={triggerShowerConfetti}
+          title="Tap to shower blessings!"
+          className="my-5 cursor-pointer group select-none transition-transform active:scale-95"
+        >
+          <h1 className="font-cinzel text-[2.1rem] xs:text-[2.35rem] sm:text-5xl font-bold tracking-wider gold-shimmer-text leading-tight group-hover:scale-[1.02] transition-transform">
             S. Guhan
           </h1>
           <div className="flex items-center justify-center space-x-3 my-2.5">
@@ -100,9 +118,13 @@ export const HeroSection = () => {
             </span>
             <div className="h-[1px] w-12 sm:w-16 bg-gradient-to-l from-transparent to-[#D4AF37]" />
           </div>
-          <h1 className="font-cinzel text-[2rem] xs:text-[2.25rem] sm:text-5xl font-bold tracking-wider text-[#8C6A16] leading-tight">
+          <h1 className="font-cinzel text-[2.1rem] xs:text-[2.35rem] sm:text-5xl font-bold tracking-wider gold-shimmer-text leading-tight group-hover:scale-[1.02] transition-transform">
             J. Harshini
           </h1>
+          <span className="inline-flex items-center space-x-1 text-[11px] sm:text-xs text-[#8C6A16] font-inter font-medium mt-2 opacity-80 group-hover:opacity-100 transition-opacity">
+            <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
+            <span>Tap names to shower blessings ✨</span>
+          </span>
         </div>
 
         {/* Tagline in Charcoal Gray */}
@@ -110,8 +132,8 @@ export const HeroSection = () => {
           &ldquo;Together with our families, we invite you to celebrate our new beginning.&rdquo;
         </p>
 
-        {/* Event Highlight Badge in Champagne Gold */}
-        <div className="mt-6 mb-8 inline-flex items-center space-x-2 bg-[#F9F6F0] border border-[#E6D3A3] px-6 py-2.5 rounded-full shadow-sm">
+        {/* Event Highlight Badge */}
+        <div className="mt-6 mb-8 inline-flex items-center space-x-2 bg-[#F9F6F0] border border-[#E6D3A3] px-6 py-2.5 rounded-full shadow-sm hover:border-[#D4AF37] transition-all">
           <Heart className="w-4 h-4 text-[#8C6A16] fill-[#8C6A16] animate-pulse" />
           <span className="font-cinzel text-sm sm:text-base tracking-widest text-[#8C6A16] font-bold uppercase">
             Wedding Reception
@@ -119,23 +141,28 @@ export const HeroSection = () => {
           <Heart className="w-4 h-4 text-[#8C6A16] fill-[#8C6A16] animate-pulse" />
         </div>
 
-        {/* Key Event Badges (Date, Time, Venue): Soft Ivory Cream + Champagne Gold Border */}
+        {/* Details Chips: Date, Time & Venue Hall */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-md mx-auto mb-8">
-          <div className="flex items-center justify-center space-x-2.5 bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-3 sm:p-3.5 shadow-sm">
+          <div className="flex items-center justify-center space-x-2.5 bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-3 sm:p-3.5 shadow-sm hover:border-[#D4AF37] transition-all">
             <Calendar className="w-5 h-5 text-[#8C6A16] flex-shrink-0" />
             <span className="font-inter text-base font-semibold text-[#222222]">Nov 16, 2026</span>
           </div>
-          <div className="flex items-center justify-center space-x-2.5 bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-3 sm:p-3.5 shadow-sm">
+          <div className="flex items-center justify-center space-x-2.5 bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-3 sm:p-3.5 shadow-sm hover:border-[#D4AF37] transition-all">
             <Clock className="w-5 h-5 text-[#8C6A16] flex-shrink-0" />
             <span className="font-inter text-base font-semibold text-[#222222]">6:00 PM IST</span>
           </div>
-          <div className="flex items-center justify-center space-x-2.5 bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-3 sm:p-3.5 shadow-sm">
-            <MapPin className="w-5 h-5 text-[#8C6A16] flex-shrink-0" />
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Chinnasamy+Gounder+Kalyanamandapam+Kulathupalayam+Kovaipudur+Coimbatore"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center space-x-2.5 bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-3 sm:p-3.5 shadow-sm hover:border-[#D4AF37] hover:bg-[#FAF5EA] transition-all group"
+          >
+            <MapPin className="w-5 h-5 text-[#8C6A16] flex-shrink-0 group-hover:scale-110 transition-transform" />
             <span className="font-inter text-base font-semibold text-[#222222]">Coimbatore</span>
-          </div>
+          </a>
         </div>
 
-        {/* Live Countdown Timer */}
+        {/* Live Countdown Timer with Glowing Progress feel */}
         <div className="mt-2 pt-6 border-t border-[#E6D3A3]">
           <p className="font-cinzel text-sm uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#8C6A16] mb-4 font-bold">
             Counting Down To The Auspicious Moment
@@ -150,7 +177,7 @@ export const HeroSection = () => {
           ) : (
             <div className="grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto">
               {/* Days */}
-              <div className="bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-2.5 sm:p-3 shadow-sm flex flex-col items-center">
+              <div className="bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-2.5 sm:p-3 shadow-sm hover:border-[#D4AF37] transition-all flex flex-col items-center">
                 <span className="font-cinzel text-2xl sm:text-3xl font-bold text-[#8C6A16]">
                   {String(timeLeft.days).padStart(2, '0')}
                 </span>
@@ -160,7 +187,7 @@ export const HeroSection = () => {
               </div>
 
               {/* Hours */}
-              <div className="bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-2.5 sm:p-3 shadow-sm flex flex-col items-center">
+              <div className="bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-2.5 sm:p-3 shadow-sm hover:border-[#D4AF37] transition-all flex flex-col items-center">
                 <span className="font-cinzel text-2xl sm:text-3xl font-bold text-[#8C6A16]">
                   {String(timeLeft.hours).padStart(2, '0')}
                 </span>
@@ -170,7 +197,7 @@ export const HeroSection = () => {
               </div>
 
               {/* Minutes */}
-              <div className="bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-2.5 sm:p-3 shadow-sm flex flex-col items-center">
+              <div className="bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-2.5 sm:p-3 shadow-sm hover:border-[#D4AF37] transition-all flex flex-col items-center">
                 <span className="font-cinzel text-2xl sm:text-3xl font-bold text-[#8C6A16]">
                   {String(timeLeft.minutes).padStart(2, '0')}
                 </span>
@@ -180,8 +207,8 @@ export const HeroSection = () => {
               </div>
 
               {/* Seconds */}
-              <div className="bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-2.5 sm:p-3 shadow-sm flex flex-col items-center">
-                <span className="font-cinzel text-2xl sm:text-3xl font-bold text-[#A88127]">
+              <div className="bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-2.5 sm:p-3 shadow-sm hover:border-[#D4AF37] transition-all flex flex-col items-center">
+                <span className="font-cinzel text-2xl sm:text-3xl font-bold text-[#A88127] animate-pulse">
                   {String(timeLeft.seconds).padStart(2, '0')}
                 </span>
                 <span className="font-inter text-xs sm:text-sm text-[#555555] font-semibold uppercase tracking-wider mt-1">

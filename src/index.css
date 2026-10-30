@@ -30,14 +30,46 @@ body {
   background: #D4AF37;
 }
 
-/* Deep Antique Gold Metallic Text Gradient */
+/* Deep Antique Gold Metallic Text Gradient with Shimmer Wave */
+@keyframes shimmer-sweep {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #8C6A16 0%,
+    #A88127 25%,
+    #D4AF37 45%,
+    #FAF6EB 50%,
+    #D4AF37 55%,
+    #A88127 75%,
+    #8C6A16 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-sweep 6s ease-in-out infinite;
+}
+
 .gold-text-gradient {
   background: linear-gradient(135deg, #8C6A16 0%, #A88127 45%, #6E520E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Champagne Gold Borders */
+/* Dynamic Luxury Card with Hover Lift */
+.luxury-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+.luxury-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 0 24px rgba(212, 175, 55, 0.18);
+  border-color: #D4AF37;
+}
+
+/* Champagne Gold Hairline Borders */
 .gold-border {
   border: 1px solid #D4AF37;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
