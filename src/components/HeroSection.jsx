@@ -173,20 +173,20 @@ export const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* 3. SAVE THE DATE: Elevated Ornate Plaque Ribbon Badge */}
+        {/* 3. SAVE THE DATE: Refined Unboxed Floating Text Header */}
         <motion.div 
-          initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35, margin: "0px 0px -80px 0px" }}
-          transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-          className="pt-3 pb-2 text-center my-3"
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+          className="text-center my-3"
         >
-          <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#8C6A16] px-7 sm:px-9 py-3 rounded-full shadow-[0_6px_24px_rgba(184,134,11,0.35)] border-2 border-[#FFF3CC] drop-shadow-md">
-            <span className="text-[#FFF5D6] text-xs sm:text-sm">✦</span>
-            <span className="font-cinzel text-xl sm:text-2xl font-bold tracking-[0.25em] text-[#FFFFFF] uppercase drop-shadow-[0_2px_3px_rgba(50,30,5,0.7)]">
+          <div className="inline-flex items-center justify-center space-x-2.5 text-[#9E7719]">
+            <span className="text-xs text-[#9E7719]/80">✦</span>
+            <span className="font-cinzel text-sm sm:text-base font-medium tracking-[0.25em] text-[#8C6A16] uppercase select-none">
               SAVE THE DATE
             </span>
-            <span className="text-[#FFF5D6] text-xs sm:text-sm">✦</span>
+            <span className="text-xs text-[#9E7719]/80">✦</span>
           </div>
         </motion.div>
 
