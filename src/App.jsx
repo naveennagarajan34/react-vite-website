@@ -7,7 +7,7 @@ import { FooterBlessings } from './components/FooterBlessings';
 import { MobileQuickBar } from './components/MobileQuickBar';
 import { ThoranamHeader } from './components/OrnamentalMotifs';
 import { weddingAudio } from './utils/audioPlayer';
-import { Volume2, VolumeX, Sparkles } from 'lucide-react';
+import { Volume2, VolumeX } from 'lucide-react';
 
 export default function App() {
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
@@ -18,9 +18,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-royal-bg-pattern text-ivory-100 flex flex-col relative selection:bg-gold-500 selection:text-maroon-950 font-inter">
-      {/* Top Auspicious Zari Ribbon & Thoranam (Velvet Plum & Polished Rose Gold) */}
-      <div className="sticky top-0 z-40 bg-[#240D26]/95 backdrop-blur-sm border-b border-[#E8B4A2]/30">
+    <div className="min-h-screen bg-royal-bg-pattern text-[#333333] flex flex-col relative selection:bg-[#D4AF37] selection:text-[#1A1A1A] font-inter">
+      {/* Top Auspicious Zari Ribbon & Thoranam */}
+      <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#E6D3A3]">
         <div className="zari-border-top" />
         <ThoranamHeader />
         <div className="zari-border-bottom" />
@@ -32,21 +32,21 @@ export default function App() {
           onClick={toggleMusic}
           type="button"
           aria-label={isPlayingMusic ? "Mute traditional wedding music" : "Play traditional wedding music"}
-          className={`min-h-[44px] min-w-[44px] flex items-center justify-center space-x-2 px-3.5 py-2 rounded-full text-sm font-semibold backdrop-blur-md shadow-lg transition-all ${
+          className={`min-h-[44px] min-w-[44px] flex items-center justify-center space-x-2 px-3.5 py-2 rounded-full text-sm font-semibold backdrop-blur-md shadow-md transition-all ${
             isPlayingMusic 
-              ? 'bg-[#E8B4A2] text-[#240D26] ring-2 ring-[#F5C7B8] shadow-gold-glow animate-pulse'
-              : 'bg-[#37173B]/90 text-[#F5C7B8] border border-[#E8B4A2]/40 hover:bg-[#E8B4A2]/20'
+              ? 'bg-[#D4AF37] text-[#1A1A1A] ring-2 ring-[#E6D3A3] animate-pulse'
+              : 'bg-[#F9F6F0]/95 text-[#8C6A16] border border-[#E6D3A3] hover:bg-[#F3EDE2]'
           }`}
         >
           {isPlayingMusic ? (
             <>
-              <Volume2 className="w-4 h-4 text-[#240D26]" />
-              <span className="hidden sm:inline font-cinzel text-xs">Nadaswaram Playing</span>
+              <Volume2 className="w-4 h-4 text-[#1A1A1A]" />
+              <span className="hidden sm:inline font-cinzel text-xs font-bold">Nadaswaram Playing</span>
             </>
           ) : (
             <>
-              <VolumeX className="w-4 h-4 text-[#E8B4A2]" />
-              <span className="hidden sm:inline font-cinzel text-xs">Play Shehnai</span>
+              <VolumeX className="w-4 h-4 text-[#8C6A16]" />
+              <span className="hidden sm:inline font-cinzel text-xs font-bold">Play Shehnai</span>
             </>
           )}
         </button>

@@ -3,98 +3,87 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
   margin: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: #240D26; /* Deep Blackened Plum */
-  color: #FAF4F8; /* Primary Silky Rose Ivory */
+  background-color: #FDFBF7;
+  color: #333333;
   overflow-x: hidden;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Custom Velvet Scrollbar */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #240D26;
+  background: #FDFBF7;
 }
 ::-webkit-scrollbar-thumb {
-  background: #BA7E6C;
+  background: #E6D3A3;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #E8B4A2;
+  background: #D4AF37;
 }
 
-/* Luxury Rose Gold Metallic Text Gradient */
-.gold-text-gradient,
-.rosegold-text-gradient {
-  background: linear-gradient(135deg, #FFF8F5 0%, #F5C7B8 25%, #E8B4A2 55%, #BA7E6C 80%, #FDF0EB 100%);
+/* Deep Antique Gold Metallic Text Gradient */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #8C6A16 0%, #A88127 45%, #6E520E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.gold-subtle-gradient,
-.rosegold-subtle-gradient {
-  background: linear-gradient(135deg, #FAF4F8 0%, #F5C7B8 50%, #E8B4A2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Champagne Gold Borders */
+.gold-border {
+  border: 1px solid #D4AF37;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
 }
 
-/* Polished Rose Gold Borders */
-.gold-border,
-.rosegold-border {
-  border: 1px solid rgba(232, 180, 162, 0.35);
-  box-shadow: 0 0 15px rgba(232, 180, 162, 0.1);
+.gold-hairline {
+  border: 1px solid #E6D3A3;
 }
 
-.gold-border-highlight,
-.rosegold-border-highlight {
-  border: 1px solid rgba(232, 180, 162, 0.65);
-  box-shadow: 0 4px 20px rgba(232, 180, 162, 0.2), inset 0 0 15px rgba(232, 180, 162, 0.08);
-}
-
-/* Evening Reception Rose Gold & Mulberry Zari Ribbon */
+/* Top/Bottom Champagne Gold Zari Ribbons */
 .zari-border-top {
   background-image: repeating-linear-gradient(
     90deg,
-    #E8B4A2,
-    #E8B4A2 6px,
-    #9C6150 6px,
-    #9C6150 12px,
-    #F5C7B8 12px,
-    #F5C7B8 18px,
-    #37173B 18px,
-    #37173B 24px
+    #D4AF37,
+    #D4AF37 6px,
+    #E6D3A3 6px,
+    #E6D3A3 12px,
+    #8C6A16 12px,
+    #8C6A16 18px,
+    #FDFBF7 18px,
+    #FDFBF7 24px
   );
-  height: 4px;
+  height: 3px;
 }
 
 .zari-border-bottom {
   background-image: repeating-linear-gradient(
     90deg,
-    #E8B4A2,
-    #E8B4A2 6px,
-    #9C6150 6px,
-    #9C6150 12px,
-    #F5C7B8 12px,
-    #F5C7B8 18px,
-    #37173B 18px,
-    #37173B 24px
+    #D4AF37,
+    #D4AF37 6px,
+    #E6D3A3 6px,
+    #E6D3A3 12px,
+    #8C6A16 12px,
+    #8C6A16 18px,
+    #FDFBF7 18px,
+    #FDFBF7 24px
   );
-  height: 4px;
+  height: 3px;
 }
 
-/* Velvet Plum Deep Royal Pattern Overlay */
+/* Warm Alabaster Linen Background Texture */
 .royal-bg-pattern {
-  background-color: #240D26;
-  background-image: radial-gradient(circle at 50% 50%, #37173B 0%, #2B102E 50%, #240D26 100%),
-    radial-gradient(rgba(232, 180, 162, 0.05) 1px, transparent 0);
-  background-size: 100% 100%, 24px 24px;
+  background-color: #FDFBF7;
+  background-image: radial-gradient(#E6D3A3 0.65px, transparent 0.65px), radial-gradient(#F9F6F0 0.65px, #FDFBF7 0.65px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
 }
 
 /* Safe area for mobile bottom notch */
