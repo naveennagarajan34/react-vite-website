@@ -113,48 +113,48 @@ export const FloralSectionDivider = ({ className = "my-6" }) => (
 // Gold Divider with ornamental diamond
 export const GoldDivider = FloralSectionDivider;
 
-// Luxury Royal Event Badge with Architectural Bracket Frame, Embossed Emblem & Golden Glow
+// Luxury Royal Event Badge with Defined Double Gold Border, Rich Warm Cream Fill & High Contrast Medallion
 export const BracketPill = ({ label, icon, text, subtext, href, onClick, className = '' }) => {
   const content = (
-    <div className={`relative group py-2 px-3 bg-gradient-to-b from-[#FFFFFF] to-[#FAF5ED] border border-[#E6D3A3] rounded-2xl shadow-[0_4px_16px_rgba(184,134,11,0.08)] hover:shadow-[0_8px_24px_rgba(184,134,11,0.18)] hover:border-[#D4AF37] transition-all duration-300 ease-out transform hover:-translate-y-1 active:translate-y-0 active:scale-[0.99] overflow-hidden flex items-center justify-center ${className}`}>
+    <div className={`relative group py-3.5 px-5 bg-gradient-to-r from-[#FFFDF9] via-[#FAF4E6] to-[#FFFDF9] border-2 border-[#C5A059] rounded-2xl shadow-[0_8px_24px_-4px_rgba(184,134,11,0.18),0_2px_6px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_28px_rgba(184,134,11,0.28)] hover:border-[#D4AF37] transition-all duration-300 ease-out transform hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] overflow-hidden flex items-center justify-center ${className}`}>
       
-      {/* Subtle Golden Border Shimmer Overlay on Hover */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-[#D4AF37]/0 via-[#FAF4E6]/25 to-[#D4AF37]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-
-      {/* Inner Metallic Gold Hairline Frame (#D4AF37) */}
+      {/* Inner Ring / Metallic Gold Hairline Frame (#D4AF37/50) */}
       <div className="absolute inset-1 border border-[#D4AF37]/50 rounded-xl pointer-events-none transition-colors duration-300 group-hover:border-[#D4AF37]" />
 
+      {/* Subtle Golden Border Shimmer Overlay on Hover */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-[#D4AF37]/0 via-[#FAF4E6]/30 to-[#D4AF37]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
       {/* Small Corner Diamond Florets */}
-      <span className="absolute top-1 left-1 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/25 pointer-events-none group-hover:scale-110 transition-transform" />
-      <span className="absolute top-1 right-1 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/25 pointer-events-none group-hover:scale-110 transition-transform" />
-      <span className="absolute bottom-1 left-1 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/25 pointer-events-none group-hover:scale-110 transition-transform" />
-      <span className="absolute bottom-1 right-1 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/25 pointer-events-none group-hover:scale-110 transition-transform" />
+      <span className="absolute top-1.5 left-1.5 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/30 pointer-events-none group-hover:scale-110 transition-transform" />
+      <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/30 pointer-events-none group-hover:scale-110 transition-transform" />
+      <span className="absolute bottom-1.5 left-1.5 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/30 pointer-events-none group-hover:scale-110 transition-transform" />
+      <span className="absolute bottom-1.5 right-1.5 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/30 pointer-events-none group-hover:scale-110 transition-transform" />
 
       {/* Moroccan / Temple Arch Bracket Notches */}
-      <div className="absolute top-0.5 left-0.5 w-2 h-2 border-t-2 border-l-2 border-[#D4AF37] rounded-tl-sm pointer-events-none" />
-      <div className="absolute top-0.5 right-0.5 w-2 h-2 border-t-2 border-r-2 border-[#D4AF37] rounded-tr-sm pointer-events-none" />
-      <div className="absolute bottom-0.5 left-0.5 w-2 h-2 border-b-2 border-l-2 border-[#D4AF37] rounded-bl-sm pointer-events-none" />
-      <div className="absolute bottom-0.5 right-0.5 w-2 h-2 border-b-2 border-r-2 border-[#D4AF37] rounded-br-sm pointer-events-none" />
+      <div className="absolute top-1 left-1 w-2.5 h-2.5 border-t-2 border-l-2 border-[#C5A059] rounded-tl-sm pointer-events-none" />
+      <div className="absolute top-1 right-1 w-2.5 h-2.5 border-t-2 border-r-2 border-[#C5A059] rounded-tr-sm pointer-events-none" />
+      <div className="absolute bottom-1 left-1 w-2.5 h-2.5 border-b-2 border-l-2 border-[#C5A059] rounded-bl-sm pointer-events-none" />
+      <div className="absolute bottom-1 right-1 w-2.5 h-2.5 border-b-2 border-r-2 border-[#C5A059] rounded-br-sm pointer-events-none" />
 
-      {/* Card Content Layout - Perfectly Centered Horizontally & Vertically */}
-      <div className="relative z-10 flex items-center justify-center space-x-2.5 text-center w-full">
+      {/* Card Content Layout - Balanced, Premium & Centered */}
+      <div className="relative z-10 flex items-center justify-center space-x-3.5 sm:space-x-4 text-center w-full">
         
-        {/* Embossed Circular Gold Foil Emblem */}
-        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#FFFFFF] via-[#F8F1E1] to-[#EAD29A] border border-[#D4AF37] shadow-[inset_0_1px_2px_rgba(255,255,255,0.9),0_2px_6px_rgba(140,106,22,0.18)] flex items-center justify-center text-[#7A5813] flex-shrink-0 group-hover:scale-105 group-hover:shadow-[0_0_10px_rgba(212,175,55,0.35)] transition-all">
+        {/* Solid Golden-Rimmed Circular Medallion Housing High-Contrast Icon */}
+        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-[#FFF8E7] via-[#F3E2B8] to-[#DDBE78] border-2 border-[#C5A059] shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.9),0_2px_8px_rgba(140,106,22,0.22)] flex items-center justify-center text-[#2A1C0A] flex-shrink-0 group-hover:scale-105 group-hover:shadow-[0_0_12px_rgba(212,175,55,0.4)] transition-all">
           {icon}
         </div>
 
-        {/* Text Container - text-center */}
+        {/* Text Container */}
         <div className="flex flex-col items-center justify-center text-center">
-          {/* Top Label: Tiny elegant gold uppercase tag */}
+          {/* Category Labels: Rich Bronze-Gold (#8C6A16), Uppercase, Tracking-widest, Font-semibold */}
           {label && (
-            <span className="font-cinzel text-[10px] font-bold tracking-[0.22em] text-[#9E7719] uppercase block leading-none mb-0.5 text-center">
+            <span className="font-cinzel text-xs font-semibold tracking-widest text-[#8C6A16] uppercase block leading-none mb-1 text-center">
               {label}
             </span>
           )}
 
-          {/* Main Value: Deep antique bronze (#7A5813) */}
-          <span className="font-cinzel font-bold text-xs sm:text-sm text-[#7A5813] tracking-wide block leading-tight text-center uppercase">
+          {/* Key Information Values: Deep Bold Charcoal-Espresso (#1A1A1A / #2A1C0A) at text-lg or text-xl */}
+          <span className="font-cinzel font-bold text-lg sm:text-xl text-[#1A1A1A] tracking-wider block leading-tight text-center uppercase">
             {text}
           </span>
 

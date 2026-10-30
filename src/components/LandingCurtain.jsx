@@ -27,11 +27,9 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
     // Guarantee the page is at the very top when opening
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 
-    // 1. Play background wedding audio (unblocked by this user gesture)
+    // 1. Play background wedding audio immediately via user gesture
     if (typeof playBgm === 'function') {
       playBgm();
-    } else if (typeof onOpen === 'function') {
-      onOpen();
     }
 
     // 2. Trigger golden sparkle & confetti burst right when the rings interlock (~400ms)
@@ -43,17 +41,20 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
         colors: ['#D4AF37', '#E6D3A3', '#8C6A16', '#FAF6EB', '#FFDF73'],
         scalar: 1.1,
       });
-    }, 380);
+    }, 400);
 
-    // 3. Begin smooth curtain glide & fade out (~900ms)
+    // 3. Initiate the graceful 1-second curtain glide and reveal (~750ms)
     setTimeout(() => {
       setIsOpened(true);
-    }, 950);
+      if (typeof onOpen === 'function') {
+        onOpen();
+      }
+    }, 750);
 
-    // 4. Completely unmount from DOM so it never intercepts clicks or scrolling (~2000ms)
+    // 4. Completely unmount from DOM after the full 1s motion completes (~1900ms)
     setTimeout(() => {
       setIsUnmounted(true);
-    }, 2000);
+    }, 1900);
   };
 
   if (isUnmounted) return null;
@@ -64,9 +65,9 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
       role="button"
       tabIndex={0}
       aria-label="Tap to open wedding invitation"
-      className={`fixed inset-0 z-[60] flex flex-col items-center justify-center select-none cursor-pointer overflow-hidden bg-[#F9F6F0] transition-all duration-1000 ease-in-out ${
+      className={`fixed inset-0 z-[60] flex flex-col items-center justify-center select-none cursor-pointer overflow-hidden bg-[#F9F6F0] transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         isOpened 
-          ? 'opacity-0 pointer-events-none -translate-y-12' 
+          ? 'opacity-0 pointer-events-none -translate-y-20' 
           : 'opacity-100 pointer-events-auto translate-y-0'
       }`}
     >
