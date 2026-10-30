@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
-import { KalasamIcon, CornerOrnament, GoldDivider } from './OrnamentalMotifs';
-import { Calendar, Clock, MapPin, Heart, Sparkles } from 'lucide-react';
+import { 
+  PosterCornerOrnament, 
+  SideRosette, 
+  FloralFiligreeDivider, 
+  FloralSectionDivider, 
+  BracketPill, 
+  GoldDivider 
+} from './OrnamentalMotifs';
+import { Calendar, Clock, MapPin, Sparkles } from 'lucide-react';
 
 export const HeroSection = () => {
   // Target: November 16, 2026, 6:00 PM IST (Coimbatore)
@@ -15,17 +22,13 @@ export const HeroSection = () => {
     isExpired: false
   });
 
-  const [celebrated, setCelebrated] = useState(false);
-
   const triggerShowerConfetti = () => {
-    setCelebrated(true);
     confetti({
-      particleCount: 75,
-      spread: 70,
-      origin: { y: 0.6 },
+      particleCount: 80,
+      spread: 75,
+      origin: { y: 0.55 },
       colors: ['#D4AF37', '#E6D3A3', '#8C6A16', '#FAF4E6', '#F5E6C8']
     });
-    setTimeout(() => setCelebrated(false), 2000);
   };
 
   useEffect(() => {
@@ -62,109 +65,163 @@ export const HeroSection = () => {
     return () => clearInterval(timer);
   }, [targetDate]);
 
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    'Chinnasamy Gounder Kalyanamandapam, Kulathupalayam, Kovaipudur, Coimbatore, Tamil Nadu 641042'
+  )}`;
+
   return (
-    <section className="relative overflow-hidden pt-6 pb-10 px-3 xs:px-4 sm:px-6 text-center">
-      {/* Dynamic Ambient Background Glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 sm:w-[420px] h-80 sm:h-[420px] bg-[#D4AF37]/15 rounded-full blur-3xl pointer-events-none animate-pulse-slow" />
+    <section className="relative overflow-hidden pt-4 pb-10 px-2.5 xs:px-3 sm:px-6 text-center">
+      {/* Dynamic Background Warm Aura */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 sm:w-[460px] h-80 sm:h-[460px] bg-[#D4AF37]/15 rounded-full blur-3xl pointer-events-none animate-pulse-slow" />
 
-      {/* Main Luxury Frame Card with Dynamic Hover Lift */}
-      <div className="luxury-card relative max-w-xl mx-auto bg-[#FFFFFF] border border-[#D4AF37] rounded-2xl px-4 py-8 sm:p-10 shadow-[0_12px_32px_rgba(0,0,0,0.06)]">
-        {/* Four Corner Ornaments */}
-        <CornerOrnament className="absolute top-2.5 left-2.5 w-7 h-7 sm:w-8 sm:h-8" position="top-left" />
-        <CornerOrnament className="absolute top-2.5 right-2.5 w-7 h-7 sm:w-8 sm:h-8" position="top-right" />
-        <CornerOrnament className="absolute bottom-2.5 left-2.5 w-7 h-7 sm:w-8 sm:h-8" position="bottom-left" />
-        <CornerOrnament className="absolute bottom-2.5 right-2.5 w-7 h-7 sm:w-8 sm:h-8" position="bottom-right" />
+      {/* Main Luxury Frame Card with Classic Gold Filigree Corners */}
+      <div className="luxury-card relative max-w-xl mx-auto bg-[#FFFFFF] border-2 border-[#D4AF37] rounded-3xl p-5 sm:p-11 shadow-[0_16px_40px_rgba(0,0,0,0.06)] overflow-hidden">
+        {/* Four Classic Victorian Filigree Corner Flourishes */}
+        <PosterCornerOrnament position="top-left" />
+        <PosterCornerOrnament position="top-right" />
+        <PosterCornerOrnament position="bottom-left" />
+        <PosterCornerOrnament position="bottom-right" />
 
-        {/* Minimalist Auspicious Invocation Header */}
-        <div className="text-center mb-5">
-          <div className="inline-flex items-center justify-center space-x-2.5 mb-2">
-            <div className="h-[1px] w-8 sm:w-12 bg-gradient-to-r from-transparent to-[#D4AF37]" />
-            <span className="text-[#8C6A16] text-xs sm:text-sm">✦</span>
-            <div className="h-[1px] w-8 sm:w-12 bg-gradient-to-l from-transparent to-[#D4AF37]" />
-          </div>
-          <span className="font-cinzel text-xs sm:text-sm text-[#8C6A16] tracking-[0.22em] sm:tracking-[0.28em] uppercase font-bold block">
+        {/* Side Mandala Rosettes */}
+        <SideRosette position="left" />
+        <SideRosette position="right" />
+
+        {/* Inner Border Hairline */}
+        <div className="absolute inset-2 sm:inset-3 border border-[#E6D3A3] rounded-2xl pointer-events-none" />
+
+        {/* 1. Header Cleanup: Clean, arched tracked styling + delicate filigree divider */}
+        <div className="pt-2 sm:pt-4 pb-1">
+          <span className="font-cinzel text-xs sm:text-sm text-[#8C6A16] tracking-[0.28em] sm:tracking-[0.35em] uppercase font-bold block">
             WITH THE BLESSINGS OF ALMIGHTY
           </span>
+          <FloralFiligreeDivider className="mt-2.5 mb-4" />
         </div>
 
-        {/* Central Kalasam Icon with Floating Animation */}
-        <div className="my-3 flex justify-center">
-          <div className="p-3.5 bg-[#F9F6F0] border border-[#E6D3A3] rounded-full shadow-sm animate-float">
-            <KalasamIcon className="w-14 h-14 sm:w-16 sm:h-16" />
-          </div>
-        </div>
-
-        {/* Headline */}
-        <h2 className="font-playfair text-xl sm:text-2xl tracking-widest text-[#8C6A16] uppercase font-bold mt-3">
-          We’re Getting Married!
+        {/* Headline with comfortable vertical breathing room */}
+        <h2 className="font-playfair text-xl sm:text-2xl tracking-[0.2em] sm:tracking-[0.25em] text-[#1F1F1F] uppercase font-bold mt-2 mb-4">
+          WE’RE GETTING MARRIED!
         </h2>
 
-        {/* Gold Divider */}
-        <GoldDivider className="my-3" />
-
-        {/* Couple Names with Continuous Shimmer Wave & Tap to Shower Confetti */}
+        {/* 2. Couple Names: S. GUHAN & J. HARSHINI in Rich Antique Gold with Sharp Edges */}
         <div 
           onClick={triggerShowerConfetti}
           title="Tap to shower blessings!"
-          className="my-5 cursor-pointer group select-none transition-transform active:scale-95"
+          className="my-4 cursor-pointer select-none group transition-transform active:scale-98"
         >
-          <h1 className="font-cinzel text-[2.1rem] xs:text-[2.35rem] sm:text-5xl font-bold tracking-wider gold-shimmer-text leading-tight group-hover:scale-[1.02] transition-transform">
-            S. Guhan
+          <h1 className="font-cinzel text-3xl xs:text-4xl sm:text-5xl font-bold tracking-wider text-[#8C6A16] gold-shimmer-text leading-tight group-hover:scale-[1.01] transition-transform">
+            S. GUHAN
           </h1>
-          <div className="flex items-center justify-center space-x-3 my-2.5">
-            <div className="h-[1px] w-12 sm:w-16 bg-gradient-to-r from-transparent to-[#D4AF37]" />
-            <span className="font-cormorant italic text-2xl sm:text-3xl text-[#A88127] font-semibold px-2">
+          <div className="flex items-center justify-center space-x-3 my-2">
+            <span className="font-cormorant italic text-2xl sm:text-3xl text-[#9E7719] font-medium px-2">
               weds
             </span>
-            <div className="h-[1px] w-12 sm:w-16 bg-gradient-to-l from-transparent to-[#D4AF37]" />
           </div>
-          <h1 className="font-cinzel text-[2.1rem] xs:text-[2.35rem] sm:text-5xl font-bold tracking-wider gold-shimmer-text leading-tight group-hover:scale-[1.02] transition-transform">
-            J. Harshini
+          <h1 className="font-cinzel text-3xl xs:text-4xl sm:text-5xl font-bold tracking-wider text-[#8C6A16] gold-shimmer-text leading-tight group-hover:scale-[1.01] transition-transform">
+            J. HARSHINI
           </h1>
-          <span className="inline-flex items-center space-x-1 text-[11px] sm:text-xs text-[#8C6A16] font-inter font-medium mt-2 opacity-80 group-hover:opacity-100 transition-opacity">
+          <span className="inline-flex items-center space-x-1 text-[11px] sm:text-xs text-[#8C6A16] font-inter font-medium mt-1.5 opacity-75 group-hover:opacity-100 transition-opacity">
             <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span>Tap names to shower blessings ✨</span>
+            <span>Tap names for golden blessings ✨</span>
           </span>
         </div>
 
-        {/* Tagline in Charcoal Gray */}
-        <p className="font-cormorant text-lg sm:text-2xl text-[#333333] italic max-w-md mx-auto leading-relaxed mt-4 font-normal">
+        {/* Tagline in Crisp Deep Charcoal (#1F1F1F) */}
+        <p className="font-cormorant italic text-lg sm:text-2xl text-[#1F1F1F] max-w-md mx-auto leading-relaxed mt-4 mb-5 font-normal px-2">
           &ldquo;Together with our families, we invite you to celebrate our new beginning.&rdquo;
         </p>
 
-        {/* Event Highlight Badge */}
-        <div className="mt-6 mb-8 inline-flex items-center space-x-2 bg-[#F9F6F0] border border-[#E6D3A3] px-6 py-2.5 rounded-full shadow-sm hover:border-[#D4AF37] transition-all">
-          <Heart className="w-4 h-4 text-[#8C6A16] fill-[#8C6A16] animate-pulse" />
-          <span className="font-cinzel text-sm sm:text-base tracking-widest text-[#8C6A16] font-bold uppercase">
-            Wedding Reception
+        {/* Wedding Reception Gold Ribbon Badge */}
+        <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#9E7719] via-[#D4AF37] to-[#9E7719] text-[#FFFFFF] px-7 py-2 rounded-full shadow-sm mb-4 border border-[#8C6A16]">
+          <span className="text-white text-xs">♥</span>
+          <span className="font-cinzel text-xs sm:text-sm tracking-widest font-bold uppercase drop-shadow-sm">
+            WEDDING RECEPTION
           </span>
-          <Heart className="w-4 h-4 text-[#8C6A16] fill-[#8C6A16] animate-pulse" />
+          <span className="text-white text-xs">♥</span>
         </div>
 
-        {/* Details Chips: Date, Time & Venue Hall */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-md mx-auto mb-8">
-          <div className="flex items-center justify-center space-x-2.5 bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-3 sm:p-3.5 shadow-sm hover:border-[#D4AF37] transition-all">
-            <Calendar className="w-5 h-5 text-[#8C6A16] flex-shrink-0" />
-            <span className="font-inter text-base font-semibold text-[#222222]">Nov 16, 2026</span>
-          </div>
-          <div className="flex items-center justify-center space-x-2.5 bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-3 sm:p-3.5 shadow-sm hover:border-[#D4AF37] transition-all">
-            <Clock className="w-5 h-5 text-[#8C6A16] flex-shrink-0" />
-            <span className="font-inter text-base font-semibold text-[#222222]">6:00 PM IST</span>
-          </div>
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=Chinnasamy+Gounder+Kalyanamandapam+Kulathupalayam+Kovaipudur+Coimbatore"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center space-x-2.5 bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-3 sm:p-3.5 shadow-sm hover:border-[#D4AF37] hover:bg-[#FAF5EA] transition-all group"
-          >
-            <MapPin className="w-5 h-5 text-[#8C6A16] flex-shrink-0 group-hover:scale-110 transition-transform" />
-            <span className="font-inter text-base font-semibold text-[#222222]">Coimbatore</span>
-          </a>
+        {/* 3. SAVE THE DATE: Tracked uppercase lettering directly above the 3 info cards */}
+        <div className="my-3 text-center">
+          <span className="font-cinzel text-sm sm:text-base tracking-[0.3em] sm:tracking-[0.35em] text-[#8C6A16] font-bold uppercase inline-block">
+            ✦ SAVE THE DATE ✦
+          </span>
         </div>
 
-        {/* Live Countdown Timer with Glowing Progress feel */}
-        <div className="mt-2 pt-6 border-t border-[#E6D3A3]">
-          <p className="font-cinzel text-sm uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#8C6A16] mb-4 font-bold">
+        {/* 4. Horizontal 3-Pill Container with Neat Gold-Bracket Borders */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 max-w-md mx-auto mb-6">
+          <BracketPill 
+            icon={<Calendar className="w-5 h-5" />} 
+            text="Nov 16, 2026" 
+          />
+          <BracketPill 
+            icon={<Clock className="w-5 h-5" />} 
+            text="6:00 PM IST" 
+          />
+          <BracketPill 
+            icon={<MapPin className="w-5 h-5" />} 
+            text="Coimbatore" 
+            href={mapsUrl}
+          />
+        </div>
+
+        {/* Decorative Floral Divider */}
+        <FloralSectionDivider className="my-6" />
+
+        {/* 5. EVENT SCHEDULE Section (Matching the latest poster design) */}
+        <div className="text-center space-y-1.5 max-w-md mx-auto">
+          <h3 className="font-cinzel text-base sm:text-lg font-bold text-[#8C6A16] tracking-[0.2em] uppercase">
+            EVENT SCHEDULE
+          </h3>
+          <p className="font-inter text-sm sm:text-base font-semibold text-[#1F1F1F]">
+            Monday, November 16, 2026
+          </p>
+          <div className="space-y-1 pt-1 text-sm sm:text-base font-inter text-[#1F1F1F]">
+            <p>
+              <span className="font-semibold text-[#8C6A16]">6:00 PM</span> — Reception &amp; Stage Greetings
+            </p>
+            <p>
+              <span className="font-semibold text-[#8C6A16]">7:30 PM</span> — Dinner to follow
+            </p>
+          </div>
+        </div>
+
+        {/* Decorative Floral Divider */}
+        <FloralSectionDivider className="my-6" />
+
+        {/* 6. VENUE Section (Matching the latest poster design with deep charcoal #1F1F1F text) */}
+        <div className="text-center space-y-1.5 max-w-md mx-auto">
+          <h3 className="font-cinzel text-base sm:text-lg font-bold text-[#8C6A16] tracking-[0.2em] uppercase">
+            VENUE
+          </h3>
+          <p className="font-inter text-base sm:text-lg font-bold text-[#1F1F1F]">
+            Chinnasamy Gounder Kalyanamandapam
+          </p>
+          <p className="font-inter text-sm sm:text-base text-[#1F1F1F] leading-relaxed">
+            Kulathupalayam, Kovaipudur, Coimbatore – 641 042
+          </p>
+          <p className="font-cormorant italic text-sm sm:text-base text-[#666666]">
+            <span className="font-semibold text-[#8C6A16] not-italic">Landmark:</span> Easily accessible within Kovaipudur, Kulathupalayam
+          </p>
+        </div>
+
+        {/* Decorative Floral Divider */}
+        <FloralSectionDivider className="my-6" />
+
+        {/* 7. Footer Note & Couple Signature */}
+        <div className="text-center space-y-1.5 max-w-md mx-auto pt-1">
+          <p className="font-cormorant italic text-lg sm:text-xl text-[#1F1F1F] leading-relaxed">
+            Your presence and blessings are our greatest gift.
+          </p>
+          <p className="font-cormorant italic text-lg sm:text-xl text-[#1F1F1F] leading-relaxed">
+            Looking forward to seeing you all on the stage!
+          </p>
+          <p className="font-cinzel font-bold text-lg sm:text-xl text-[#8C6A16] pt-1">
+            — Guhan &amp; Harshini
+          </p>
+        </div>
+
+        {/* 8. Live Countdown to the Auspicious Moment */}
+        <div className="mt-8 pt-6 border-t border-[#E6D3A3]">
+          <p className="font-cinzel text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#8C6A16] mb-4 font-bold">
             Counting Down To The Auspicious Moment
           </p>
 
@@ -176,7 +233,6 @@ export const HeroSection = () => {
             </div>
           ) : (
             <div className="grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto">
-              {/* Days */}
               <div className="bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-2.5 sm:p-3 shadow-sm hover:border-[#D4AF37] transition-all flex flex-col items-center">
                 <span className="font-cinzel text-2xl sm:text-3xl font-bold text-[#8C6A16]">
                   {String(timeLeft.days).padStart(2, '0')}
@@ -186,7 +242,6 @@ export const HeroSection = () => {
                 </span>
               </div>
 
-              {/* Hours */}
               <div className="bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-2.5 sm:p-3 shadow-sm hover:border-[#D4AF37] transition-all flex flex-col items-center">
                 <span className="font-cinzel text-2xl sm:text-3xl font-bold text-[#8C6A16]">
                   {String(timeLeft.hours).padStart(2, '0')}
@@ -196,7 +251,6 @@ export const HeroSection = () => {
                 </span>
               </div>
 
-              {/* Minutes */}
               <div className="bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-2.5 sm:p-3 shadow-sm hover:border-[#D4AF37] transition-all flex flex-col items-center">
                 <span className="font-cinzel text-2xl sm:text-3xl font-bold text-[#8C6A16]">
                   {String(timeLeft.minutes).padStart(2, '0')}
@@ -206,7 +260,6 @@ export const HeroSection = () => {
                 </span>
               </div>
 
-              {/* Seconds */}
               <div className="bg-[#F9F6F0] border border-[#E6D3A3] rounded-xl p-2.5 sm:p-3 shadow-sm hover:border-[#D4AF37] transition-all flex flex-col items-center">
                 <span className="font-cinzel text-2xl sm:text-3xl font-bold text-[#A88127] animate-pulse">
                   {String(timeLeft.seconds).padStart(2, '0')}
@@ -218,6 +271,7 @@ export const HeroSection = () => {
             </div>
           )}
         </div>
+
       </div>
     </section>
   );

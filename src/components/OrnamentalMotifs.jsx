@@ -1,96 +1,171 @@
 import React from 'react';
 
-// South Indian Kalasam / Mangala Kumbham (Rich Champagne Gold)
-export const KalasamIcon = ({ className = "w-12 h-12 text-[#8C6A16]" }) => (
-  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-    <defs>
-      <linearGradient id="champagneGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#E6D3A3" />
-        <stop offset="45%" stopColor="#D4AF37" />
-        <stop offset="100%" stopColor="#8C6A16" />
-      </linearGradient>
-    </defs>
-    {/* Flame on top of coconut */}
-    <path d="M50 8 C48 14, 44 20, 50 25 C56 20, 52 14, 50 8 Z" fill="url(#champagneGoldGrad)" />
-    {/* Coconut */}
-    <circle cx="50" cy="32" r="14" stroke="url(#champagneGoldGrad)" strokeWidth="2.5" fill="#FDFBF7" />
-    <path d="M44 30 Q50 36 56 30" stroke="url(#champagneGoldGrad)" strokeWidth="1.5" />
-    <circle cx="47" cy="28" r="1" fill="#8C6A16" />
-    <circle cx="53" cy="28" r="1" fill="#8C6A16" />
-    <circle cx="50" cy="33" r="1" fill="#8C6A16" />
-    {/* Mango Leaves */}
-    <path d="M38 34 C30 25, 20 28, 22 36 C28 36, 36 36, 38 34 Z" fill="url(#champagneGoldGrad)" />
-    <path d="M62 34 C70 25, 80 28, 78 36 C72 36, 64 36, 62 34 Z" fill="url(#champagneGoldGrad)" />
-    <path d="M34 40 C22 36, 16 46, 26 48 C30 46, 34 42, 34 40 Z" fill="url(#champagneGoldGrad)" />
-    <path d="M66 40 C78 36, 84 46, 74 48 C70 46, 66 42, 66 40 Z" fill="url(#champagneGoldGrad)" />
-    {/* Kumbham Pot Rim */}
-    <ellipse cx="50" cy="46" rx="20" ry="4" stroke="url(#champagneGoldGrad)" strokeWidth="2.5" fill="#F9F6F0" />
-    {/* Pot Body */}
-    <path d="M32 48 C22 60, 22 78, 36 86 C42 89, 58 89, 64 86 C78 78, 78 60, 68 48 Z" 
-          stroke="url(#champagneGoldGrad)" strokeWidth="2.5" fill="#FFFFFF" />
-    {/* Sacred Lines on Pot */}
-    <path d="M50 56 V76 M40 66 H60" stroke="url(#champagneGoldGrad)" strokeWidth="1.8" strokeLinecap="round" />
-    <path d="M50 56 H56 M50 76 H44 M40 66 V60 M60 66 V72" stroke="url(#champagneGoldGrad)" strokeWidth="1.8" strokeLinecap="round" />
-    {/* Pot Base */}
-    <path d="M38 88 H62 C62 92, 38 92, 38 88 Z" fill="url(#champagneGoldGrad)" />
-  </svg>
-);
-
-// Intricate Corner Ornament in Refined Gold
-export const CornerOrnament = ({ className = "w-8 h-8 text-[#D4AF37]", position = "top-left" }) => {
-  const rotationClass = {
-    'top-left': 'rotate-0',
-    'top-right': 'rotate-90',
-    'bottom-right': 'rotate-180',
-    'bottom-left': '-rotate-90'
-  }[position] || 'rotate-0';
+// Classic Victorian / Royal Filigree Corner Flourish (Matching the latest poster design)
+export const PosterCornerOrnament = ({ className = "w-16 h-16 sm:w-20 sm:h-20 text-[#9E7719]", position = "top-left" }) => {
+  const transform = {
+    'top-left': 'scale(1, 1)',
+    'top-right': 'scale(-1, 1)',
+    'bottom-left': 'scale(1, -1)',
+    'bottom-right': 'scale(-1, -1)'
+  }[position] || 'scale(1, 1)';
 
   return (
-    <div className={`pointer-events-none select-none ${className} ${rotationClass}`}>
-      <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-        <path d="M2 2 L2 24 C2 24 6 12 18 10 C30 8 36 2 48 2" stroke="#D4AF37" strokeWidth="2" strokeLinecap="round" />
-        <path d="M6 6 L6 18 C6 18 10 10 18 8" stroke="#E6D3A3" strokeWidth="1" strokeLinecap="round" />
-        <circle cx="10" cy="10" r="2.5" fill="#D4AF37" />
-        <circle cx="2" cy="2" r="2.5" fill="#E6D3A3" />
-        <circle cx="26" cy="6" r="1.5" fill="#D4AF37" />
+    <div 
+      className={`pointer-events-none select-none absolute z-10 ${className}`}
+      style={{
+        top: position.includes('top') ? '0px' : 'auto',
+        bottom: position.includes('bottom') ? '0px' : 'auto',
+        left: position.includes('left') ? '0px' : 'auto',
+        right: position.includes('right') ? '0px' : 'auto',
+        transform,
+      }}
+    >
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+        {/* Outer and Inner Corner Hairlines */}
+        <path d="M 6 45 L 6 6 L 45 6" stroke="#D4AF37" strokeWidth="1.2" fill="none" opacity="0.85" />
+        <path d="M 12 40 L 12 12 L 40 12" stroke="#9E7719" strokeWidth="0.8" fill="none" opacity="0.6" />
+        
+        {/* Intricate Filigree Scrollwork */}
+        <path d="M 18 18 C 24 10, 36 10, 42 16 C 36 20, 28 20, 22 28 C 20 34, 20 42, 16 42 C 10 36, 10 24, 18 18 Z" 
+              fill="#D4AF37" fillOpacity="0.25" stroke="#9E7719" strokeWidth="1" />
+        <path d="M 12 12 C 18 4, 32 4, 38 10" stroke="#D4AF37" strokeWidth="1.2" strokeLinecap="round" />
+        <path d="M 12 12 C 4 18, 4 32, 10 38" stroke="#D4AF37" strokeWidth="1.2" strokeLinecap="round" />
+        
+        {/* Acanthus Leaf Swirls */}
+        <path d="M 24 24 C 32 16, 44 20, 46 28 C 42 32, 34 30, 28 36 C 24 42, 26 48, 20 48" 
+              stroke="#9E7719" strokeWidth="1" strokeLinecap="round" />
+        <path d="M 28 28 C 22 36, 16 44, 28 46" stroke="#D4AF37" strokeWidth="0.9" />
+
+        {/* Corner Heart/Rosette Accent */}
+        <circle cx="12" cy="12" r="3" fill="#D4AF37" />
+        <circle cx="12" cy="12" r="1.5" fill="#FAF6F0" />
+        <circle cx="28" cy="14" r="1.5" fill="#9E7719" />
+        <circle cx="14" cy="28" r="1.5" fill="#9E7719" />
       </svg>
     </div>
   );
 };
 
-// South Indian Kolam / Rangoli Motif in Rich Champagne Gold
-export const KolamMotif = ({ className = "w-24 h-24 text-[#8C6A16]" }) => (
-  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-    <g stroke="currentColor" strokeWidth="1.5" opacity="0.85">
-      {/* Central Petals */}
-      <circle cx="50" cy="50" r="6" fill="#D4AF37" fillOpacity="0.3" />
-      <circle cx="50" cy="50" r="16" strokeDasharray="3 3" />
-      <circle cx="50" cy="50" r="32" strokeDasharray="2 4" />
-      {/* 8-fold lotus loops */}
-      <path d="M50 34 C44 20, 56 20, 50 34 Z" fill="currentColor" fillOpacity="0.12" />
-      <path d="M50 66 C44 80, 56 80, 50 66 Z" fill="currentColor" fillOpacity="0.12" />
-      <path d="M34 50 C20 44, 20 56, 34 50 Z" fill="currentColor" fillOpacity="0.12" />
-      <path d="M66 50 C80 44, 80 56, 66 50 Z" fill="currentColor" fillOpacity="0.12" />
-      <path d="M39 39 C29 29, 38 20, 39 39 Z" fill="currentColor" fillOpacity="0.12" />
-      <path d="M61 61 C71 71, 62 80, 61 61 Z" fill="currentColor" fillOpacity="0.12" />
-      <path d="M39 61 C29 71, 20 62, 39 61 Z" fill="currentColor" fillOpacity="0.12" />
-      <path d="M61 39 C71 29, 80 38, 61 39 Z" fill="currentColor" fillOpacity="0.12" />
-      {/* Outer dots */}
-      <circle cx="50" cy="12" r="1.5" fill="currentColor" />
-      <circle cx="50" cy="88" r="1.5" fill="currentColor" />
-      <circle cx="12" cy="50" r="1.5" fill="currentColor" />
-      <circle cx="88" cy="50" r="1.5" fill="currentColor" />
-      <circle cx="23" cy="23" r="1.5" fill="currentColor" />
-      <circle cx="77" cy="77" r="1.5" fill="currentColor" />
-      <circle cx="23" cy="77" r="1.5" fill="currentColor" />
-      <circle cx="77" cy="23" r="1.5" fill="currentColor" />
-    </g>
-  </svg>
+// Side Mandala / Rosette Motif on Left & Right Card Borders
+export const SideRosette = ({ position = "left" }) => {
+  const isLeft = position === "left";
+  return (
+    <div 
+      className={`pointer-events-none select-none absolute top-1/2 -translate-y-1/2 z-10 w-6 h-14 sm:w-8 sm:h-20 text-[#9E7719] opacity-85 ${
+        isLeft ? '-left-[1px]' : '-right-[1px] rotate-180'
+      }`}
+    >
+      <svg viewBox="0 0 30 70" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+        <path d="M 0 5 C 15 15, 25 25, 25 35 C 25 45, 15 55, 0 65" stroke="#D4AF37" strokeWidth="1.2" fill="#FDFBF7" />
+        <path d="M 0 15 C 10 22, 18 28, 18 35 C 18 42, 10 48, 0 55" stroke="#9E7719" strokeWidth="0.8" fill="#F9F6F0" />
+        <circle cx="10" cy="35" r="4" fill="#D4AF37" stroke="#9E7719" strokeWidth="0.8" />
+        <circle cx="10" cy="35" r="1.5" fill="#FFFFFF" />
+      </svg>
+    </div>
+  );
+};
+
+// Delicate Floral Filigree Divider directly beneath "WITH THE BLESSINGS OF ALMIGHTY"
+export const FloralFiligreeDivider = ({ className = "my-3" }) => (
+  <div className={`flex items-center justify-center space-x-2 w-full max-w-xs mx-auto ${className}`}>
+    <svg viewBox="0 0 240 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-48 sm:w-60 h-6">
+      {/* Central Flower */}
+      <circle cx="120" cy="12" r="3.5" fill="#D4AF37" stroke="#9E7719" strokeWidth="0.8" />
+      <circle cx="120" cy="12" r="1.5" fill="#FFFFFF" />
+      {/* Petals */}
+      <ellipse cx="120" cy="6.5" rx="1.8" ry="2.5" fill="#D4AF37" opacity="0.8" />
+      <ellipse cx="120" cy="17.5" rx="1.8" ry="2.5" fill="#D4AF37" opacity="0.8" />
+      <ellipse cx="114.5" cy="12" rx="2.5" ry="1.8" fill="#D4AF37" opacity="0.8" />
+      <ellipse cx="125.5" cy="12" rx="2.5" ry="1.8" fill="#D4AF37" opacity="0.8" />
+      
+      {/* Left Filigree Scroll */}
+      <path d="M 112 12 C 102 7, 88 7, 76 13 C 68 17, 56 16, 48 11 C 42 7, 30 9, 24 14" 
+            stroke="#9E7719" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M 88 10 C 92 5, 100 5, 104 9" stroke="#D4AF37" strokeWidth="0.9" />
+      <path d="M 64 15 C 68 18, 74 17, 76 13" stroke="#D4AF37" strokeWidth="0.9" />
+      <circle cx="22" cy="14" r="1.5" fill="#9E7719" />
+      
+      {/* Right Filigree Scroll */}
+      <path d="M 128 12 C 138 7, 152 7, 164 13 C 172 17, 184 16, 192 11 C 198 7, 210 9, 216 14" 
+            stroke="#9E7719" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M 152 10 C 148 5, 140 5, 136 9" stroke="#D4AF37" strokeWidth="0.9" />
+      <path d="M 176 15 C 172 18, 166 17, 164 13" stroke="#D4AF37" strokeWidth="0.9" />
+      <circle cx="218" cy="14" r="1.5" fill="#9E7719" />
+    </svg>
+  </div>
 );
 
-// Subtle Gold Geometric Header Divider (clean top bar)
+// Subtle Decorative Floral Rosette Divider between sections (Schedule, Venue, Footer)
+export const FloralSectionDivider = ({ className = "my-6" }) => (
+  <div className={`flex items-center justify-center space-x-3 w-full max-w-sm mx-auto select-none ${className}`}>
+    <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#E6D3A3] to-[#9E7719]" />
+    <div className="flex items-center space-x-1.5 text-[#9E7719]">
+      <span className="text-[10px]">✦</span>
+      <div className="w-2 h-2 rotate-45 bg-[#D4AF37] border border-[#9E7719]" />
+      <span className="text-xs sm:text-sm text-[#8C6A16]">✿</span>
+      <div className="w-2 h-2 rotate-45 bg-[#D4AF37] border border-[#9E7719]" />
+      <span className="text-[10px]">✦</span>
+    </div>
+    <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent via-[#E6D3A3] to-[#9E7719]" />
+  </div>
+);
+
+// Gold Divider with ornamental diamond
+export const GoldDivider = FloralSectionDivider;
+
+// Bracket Border Pill Container (Matching the latest poster design [Date, Time, Location])
+export const BracketPill = ({ icon, text, subtext, href, onClick }) => {
+  const content = (
+    <div className="relative group bg-[#F9F6F0] px-3.5 py-3 transition-all duration-300 hover:bg-[#FAF4E6] flex items-center justify-center space-x-2 text-center rounded-sm">
+      {/* Outer Bracket Border */}
+      <div className="absolute inset-0 border border-[#9E7719] rounded-sm pointer-events-none" />
+      {/* 4 Bracket Corners */}
+      <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-[#8C6A16] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-[#8C6A16] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-[#8C6A16] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-[#8C6A16] pointer-events-none" />
+      
+      {/* Icon & Label */}
+      <div className="flex items-center justify-center space-x-2 z-10">
+        <span className="text-[#8C6A16] flex-shrink-0 group-hover:scale-110 transition-transform">
+          {icon}
+        </span>
+        <div className="text-left sm:text-center leading-tight">
+          <span className="font-inter font-semibold text-sm sm:text-base text-[#1F1F1F] block">
+            {text}
+          </span>
+          {subtext && (
+            <span className="font-inter text-xs text-[#555555] block">
+              {subtext}
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className="block focus:outline-none focus:ring-1 focus:ring-[#8C6A16]">
+        {content}
+      </a>
+    );
+  }
+
+  if (onClick) {
+    return (
+      <button type="button" onClick={onClick} className="w-full text-left focus:outline-none">
+        {content}
+      </button>
+    );
+  }
+
+  return content;
+};
+
+// Subtle Geometric Header Divider for the sticky ribbon
 export const ThoranamHeader = () => (
-  <div className="w-full flex items-center justify-center overflow-hidden py-2 opacity-95 select-none px-4">
+  <div className="w-full flex items-center justify-center overflow-hidden py-1.5 opacity-90 select-none px-4">
     <div className="flex items-center space-x-2 sm:space-x-3 text-[#A88127] max-w-sm w-full justify-center">
       <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-[#D4AF37]" />
       <span className="text-[#8C6A16] text-xs sm:text-sm">✿</span>
@@ -100,18 +175,5 @@ export const ThoranamHeader = () => (
       <span className="text-[#8C6A16] text-xs sm:text-sm">✿</span>
       <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent via-[#D4AF37]/60 to-[#D4AF37]" />
     </div>
-  </div>
-);
-
-// Gold Divider with ornamental diamond
-export const GoldDivider = ({ className = "my-4" }) => (
-  <div className={`flex items-center justify-center space-x-3 w-full max-w-xs mx-auto ${className}`}>
-    <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-[#D4AF37]" />
-    <div className="flex items-center space-x-1">
-      <div className="w-1.5 h-1.5 rotate-45 bg-[#D4AF37]" />
-      <div className="w-2.5 h-2.5 rotate-45 border border-[#8C6A16] bg-[#F9F6F0]" />
-      <div className="w-1.5 h-1.5 rotate-45 bg-[#D4AF37]" />
-    </div>
-    <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent via-[#D4AF37]/60 to-[#D4AF37]" />
   </div>
 );

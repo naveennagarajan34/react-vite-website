@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { HeroSection } from './components/HeroSection';
 import { InvitationNote } from './components/InvitationNote';
-import { EventSchedule } from './components/EventSchedule';
-import { FooterBlessings } from './components/FooterBlessings';
 import { MobileQuickBar } from './components/MobileQuickBar';
 import { ThoranamHeader } from './components/OrnamentalMotifs';
 import { FallingPetalsCanvas } from './components/FallingPetalsCanvas';
@@ -62,17 +60,11 @@ export default function App() {
 
       {/* Main Content Flow */}
       <main className="flex-1 max-w-2xl mx-auto w-full pt-3 pb-24 px-1 xs:px-2 sm:px-0">
-        {/* 1. Hero Section with Live Countdown & Shimmer Names */}
+        {/* 1. Master Wedding Invitation Card (Faithful to latest poster design) */}
         <HeroSection />
 
-        {/* 2. The Invitation Note Card */}
+        {/* 2. The Personal Invitation Note Card */}
         <InvitationNote />
-
-        {/* 3. Event Schedule & Timeline with Integrated Venue Hall */}
-        <EventSchedule />
-
-        {/* 4. Footer & Blessings */}
-        <FooterBlessings />
       </main>
 
       {/* 5. Sticky Mobile Quick Action Bar (with Directions button) */}
