@@ -184,30 +184,11 @@ export const HeroSection = () => {
           </div>
         </div>
 
-        {/* Decorative Floral Divider */}
-        <FloralSectionDivider className="my-6" />
+        {/* Decorative Floral Divider directly leading into Final Blessings Note */}
+        <FloralSectionDivider className="my-5" />
 
-        {/* 6. VENUE Section (Matching the latest poster design with deep charcoal #1F1F1F text) */}
+        {/* Final Blessings Note & Couple Signature */}
         <div className="text-center space-y-1.5 max-w-md mx-auto">
-          <h3 className="font-cinzel text-base sm:text-lg font-bold text-[#8C6A16] tracking-[0.2em] uppercase">
-            VENUE
-          </h3>
-          <p className="font-inter text-base sm:text-lg font-bold text-[#1F1F1F]">
-            Chinnasamy Gounder Kalyanamandapam
-          </p>
-          <p className="font-inter text-sm sm:text-base text-[#1F1F1F] leading-relaxed">
-            Kulathupalayam, Kovaipudur, Coimbatore – 641 042
-          </p>
-          <p className="font-cormorant italic text-sm sm:text-base text-[#666666]">
-            <span className="font-semibold text-[#8C6A16] not-italic">Landmark:</span> Easily accessible within Kovaipudur, Kulathupalayam
-          </p>
-        </div>
-
-        {/* Decorative Floral Divider */}
-        <FloralSectionDivider className="my-6" />
-
-        {/* 7. Footer Note & Couple Signature */}
-        <div className="text-center space-y-1.5 max-w-md mx-auto pt-1">
           <p className="font-cormorant italic text-lg sm:text-xl text-[#1F1F1F] leading-relaxed">
             Your presence and blessings are our greatest gift.
           </p>
