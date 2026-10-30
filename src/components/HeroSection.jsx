@@ -190,43 +190,46 @@ export const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* 4. High-Contrast Event Detail Cards (Date, Time, Place) */}
+        {/* 4. High-Contrast Event Detail Cards (Date, Time, Place) with Dynamic Shimmer, Aura & Staggered Reveal */}
         <div className="flex flex-col gap-3.5 max-w-sm mx-auto mt-4 mb-6">
           <motion.div 
-            initial={{ opacity: 0, y: 45, filter: "blur(4px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            viewport={{ once: true, amount: 0.35, margin: "0px 0px -80px 0px" }}
-            transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
           >
             <BracketPill 
               label="DATE"
               icon={<Calendar className="w-5 h-5 text-[#2A1C0A] stroke-[2.2]" />} 
               text="NOV 16, 2026" 
+              sheenDelay="0s"
             />
           </motion.div>
           <motion.div 
-            initial={{ opacity: 0, y: 45, filter: "blur(4px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            viewport={{ once: true, amount: 0.35, margin: "0px 0px -80px 0px" }}
-            transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
           >
             <BracketPill 
               label="TIME"
               icon={<Clock className="w-5 h-5 text-[#2A1C0A] stroke-[2.2]" />} 
               text="6:00 PM" 
+              sheenDelay="0.6s"
             />
           </motion.div>
           <motion.div 
-            initial={{ opacity: 0, y: 45, filter: "blur(4px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            viewport={{ once: true, amount: 0.35, margin: "0px 0px -80px 0px" }}
-            transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.40 }}
           >
             <BracketPill 
               label="PLACE"
               icon={<MapPin className="w-5 h-5 text-[#2A1C0A] stroke-[2.2]" />} 
               text="COIMBATORE" 
               href={mapsUrl}
+              sheenDelay="1.2s"
             />
           </motion.div>
         </div>

@@ -113,34 +113,41 @@ export const FloralSectionDivider = ({ className = "my-6" }) => (
 // Gold Divider with ornamental diamond
 export const GoldDivider = FloralSectionDivider;
 
-// Luxury Royal Event Badge with Defined Double Gold Border, Rich Warm Cream Fill & High Contrast Medallion
-export const BracketPill = ({ label, icon, text, subtext, href, onClick, className = '' }) => {
+// Luxury Royal Event Badge with Defined Double Gold Border, Dynamic Gold Shimmer, Breathing Aura & Medallion Hover Reaction
+export const BracketPill = ({ label, icon, text, subtext, href, onClick, sheenDelay = '0s', className = '' }) => {
   const content = (
-    <div className={`relative group py-3.5 px-5 bg-gradient-to-r from-[#FFFDF9] via-[#FAF4E6] to-[#FFFDF9] border-2 border-[#C5A059] rounded-2xl shadow-[0_8px_24px_-4px_rgba(184,134,11,0.18),0_2px_6px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_28px_rgba(184,134,11,0.28)] hover:border-[#D4AF37] transition-all duration-300 ease-out transform hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] overflow-hidden flex items-center justify-center ${className}`}>
+    <div className={`relative group py-3.5 px-5 bg-gradient-to-r from-[#FFFDF9] via-[#FAF4E6] to-[#FFFDF9] border-2 border-[#C5A059] rounded-2xl animate-card-glow transition-all duration-300 ease-out transform cursor-pointer select-none hover:-translate-y-1 hover:scale-[1.02] active:translate-y-0 active:scale-[0.99] hover:border-[#D4AF37] overflow-hidden flex items-center justify-center ${className}`}>
       
+      {/* 1. Continuous Ambient Gold Sheen Sweep Effect */}
+      <div 
+        className="gold-card-sheen" 
+        style={{ animationDelay: sheenDelay }}
+        aria-hidden="true" 
+      />
+
       {/* Inner Ring / Metallic Gold Hairline Frame (#D4AF37/50) */}
       <div className="absolute inset-1 border border-[#D4AF37]/50 rounded-xl pointer-events-none transition-colors duration-300 group-hover:border-[#D4AF37]" />
 
       {/* Subtle Golden Border Shimmer Overlay on Hover */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-[#D4AF37]/0 via-[#FAF4E6]/30 to-[#D4AF37]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-[#D4AF37]/0 via-[#FAF4E6]/30 to-[#D4AF37]/15 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
       {/* Small Corner Diamond Florets */}
-      <span className="absolute top-1.5 left-1.5 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/30 pointer-events-none group-hover:scale-110 transition-transform" />
-      <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/30 pointer-events-none group-hover:scale-110 transition-transform" />
-      <span className="absolute bottom-1.5 left-1.5 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/30 pointer-events-none group-hover:scale-110 transition-transform" />
-      <span className="absolute bottom-1.5 right-1.5 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/30 pointer-events-none group-hover:scale-110 transition-transform" />
+      <span className="absolute top-1.5 left-1.5 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/30 pointer-events-none group-hover:scale-125 transition-transform duration-300" />
+      <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/30 pointer-events-none group-hover:scale-125 transition-transform duration-300" />
+      <span className="absolute bottom-1.5 left-1.5 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/30 pointer-events-none group-hover:scale-125 transition-transform duration-300" />
+      <span className="absolute bottom-1.5 right-1.5 w-1.5 h-1.5 rotate-45 bg-[#D4AF37] border border-[#8C6A16]/30 pointer-events-none group-hover:scale-125 transition-transform duration-300" />
 
       {/* Moroccan / Temple Arch Bracket Notches */}
-      <div className="absolute top-1 left-1 w-2.5 h-2.5 border-t-2 border-l-2 border-[#C5A059] rounded-tl-sm pointer-events-none" />
-      <div className="absolute top-1 right-1 w-2.5 h-2.5 border-t-2 border-r-2 border-[#C5A059] rounded-tr-sm pointer-events-none" />
-      <div className="absolute bottom-1 left-1 w-2.5 h-2.5 border-b-2 border-l-2 border-[#C5A059] rounded-bl-sm pointer-events-none" />
-      <div className="absolute bottom-1 right-1 w-2.5 h-2.5 border-b-2 border-r-2 border-[#C5A059] rounded-br-sm pointer-events-none" />
+      <div className="absolute top-1 left-1 w-2.5 h-2.5 border-t-2 border-l-2 border-[#C5A059] rounded-tl-sm pointer-events-none group-hover:border-[#D4AF37] transition-colors" />
+      <div className="absolute top-1 right-1 w-2.5 h-2.5 border-t-2 border-r-2 border-[#C5A059] rounded-tr-sm pointer-events-none group-hover:border-[#D4AF37] transition-colors" />
+      <div className="absolute bottom-1 left-1 w-2.5 h-2.5 border-b-2 border-l-2 border-[#C5A059] rounded-bl-sm pointer-events-none group-hover:border-[#D4AF37] transition-colors" />
+      <div className="absolute bottom-1 right-1 w-2.5 h-2.5 border-b-2 border-r-2 border-[#C5A059] rounded-br-sm pointer-events-none group-hover:border-[#D4AF37] transition-colors" />
 
       {/* Card Content Layout - Balanced, Premium & Centered */}
       <div className="relative z-10 flex items-center justify-center space-x-3.5 sm:space-x-4 text-center w-full">
         
-        {/* Solid Golden-Rimmed Circular Medallion Housing High-Contrast Icon */}
-        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-[#FFF8E7] via-[#F3E2B8] to-[#DDBE78] border-2 border-[#C5A059] shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.9),0_2px_8px_rgba(140,106,22,0.22)] flex items-center justify-center text-[#2A1C0A] flex-shrink-0 group-hover:scale-105 group-hover:shadow-[0_0_12px_rgba(212,175,55,0.4)] transition-all">
+        {/* Solid Golden-Rimmed Circular Medallion Housing High-Contrast Icon with Tap/Hover Reaction */}
+        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-[#FFF8E7] via-[#F3E2B8] to-[#DDBE78] border-2 border-[#C5A059] shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.9),0_2px_8px_rgba(140,106,22,0.22)] flex items-center justify-center text-[#2A1C0A] flex-shrink-0 transition-all duration-300 ease-out transform group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-[0_0_16px_rgba(212,175,55,0.55)] group-hover:border-[#D4AF37] group-active:scale-110">
           {icon}
         </div>
 
@@ -148,13 +155,13 @@ export const BracketPill = ({ label, icon, text, subtext, href, onClick, classNa
         <div className="flex flex-col items-center justify-center text-center">
           {/* Category Labels: Rich Bronze-Gold (#8C6A16), Uppercase, Tracking-widest, Font-semibold */}
           {label && (
-            <span className="font-cinzel text-xs font-semibold tracking-widest text-[#8C6A16] uppercase block leading-none mb-1 text-center">
+            <span className="font-cinzel text-xs font-semibold tracking-widest text-[#8C6A16] uppercase block leading-none mb-1 text-center group-hover:text-[#6E520E] transition-colors">
               {label}
             </span>
           )}
 
           {/* Key Information Values: Deep Bold Charcoal-Espresso (#1A1A1A / #2A1C0A) at text-lg or text-xl */}
-          <span className="font-cinzel font-bold text-lg sm:text-xl text-[#1A1A1A] tracking-wider block leading-tight text-center uppercase">
+          <span className="font-cinzel font-bold text-lg sm:text-xl text-[#1A1A1A] tracking-wider block leading-tight text-center uppercase group-hover:text-[#000000] transition-colors">
             {text}
           </span>
 
@@ -170,7 +177,7 @@ export const BracketPill = ({ label, icon, text, subtext, href, onClick, classNa
 
   if (href) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className="block focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/50 rounded-2xl">
+      <a href={href} target="_blank" rel="noopener noreferrer" className="block focus:outline-none rounded-2xl">
         {content}
       </a>
     );
@@ -178,7 +185,7 @@ export const BracketPill = ({ label, icon, text, subtext, href, onClick, classNa
 
   if (onClick) {
     return (
-      <button type="button" onClick={onClick} className="w-full text-left focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/50 rounded-2xl">
+      <button type="button" onClick={onClick} className="w-full text-left focus:outline-none rounded-2xl">
         {content}
       </button>
     );
