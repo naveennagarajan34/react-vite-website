@@ -31,7 +31,7 @@ export const VenueNavigation = () => {
           </h2>
           <GoldDivider className="my-2" />
           <p className="font-cormorant text-lg sm:text-xl text-[#555555] italic leading-relaxed">
-            We eagerly look forward to welcoming you in Coimbatore
+            We eagerly look forward to welcoming you in Kovaipudur
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export const VenueNavigation = () => {
               {venueName}
             </h3>
             <p className="font-inter text-sm sm:text-base text-[#555555] font-semibold tracking-wider mt-1.5">
-              Coimbatore, Tamil Nadu
+              Kovaipudur, Coimbatore
             </p>
           </div>
 

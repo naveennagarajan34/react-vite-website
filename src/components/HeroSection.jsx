@@ -227,7 +227,7 @@ export const HeroSection = () => {
             <BracketPill 
               label="PLACE"
               icon={<MapPin className="w-5 h-5 text-[#2A1C0A] stroke-[2.2]" />} 
-              text="COIMBATORE" 
+              text="Kovaipudur" 
               href={mapsUrl}
               sheenDelay="1.2s"
             />

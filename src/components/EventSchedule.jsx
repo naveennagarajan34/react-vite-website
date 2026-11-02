@@ -108,7 +108,7 @@ export const EventSchedule = () => {
                 className="inline-flex items-center space-x-1.5 text-sm sm:text-base font-inter font-medium text-[#8C6A16] hover:text-[#5E4409] transition-colors group"
               >
                 <MapPin className="w-4 h-4 text-[#D4AF37] flex-shrink-0 group-hover:scale-110 transition-transform" />
-                <span>Chinnasamy Gounder Kalyanamandapam, Coimbatore</span>
+                <span>Chinnasamy Gounder Kalyanamandapam, Kovaipudur</span>
                 <ChevronRight className="w-4 h-4 text-[#8C6A16] opacity-70 group-hover:translate-x-0.5 transition-transform" />
               </a>
             </div>
