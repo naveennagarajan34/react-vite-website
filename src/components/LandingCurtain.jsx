@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { PosterCornerOrnament } from './OrnamentalMotifs';
 
@@ -32,29 +33,30 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
       playBgm();
     }
 
-    // 2. Trigger golden sparkle & confetti burst right when the rings interlock (~400ms)
+    // 2. Trigger golden sparkle & confetti burst right when the rings interlock (~1050ms)
     setTimeout(() => {
       confetti({
-        particleCount: 85,
-        spread: 80,
-        origin: { y: 0.52 },
+        particleCount: 55,
+        spread: 75,
+        origin: { y: 0.50 },
         colors: ['#D4AF37', '#E6D3A3', '#8C6A16', '#FAF6EB', '#FFDF73'],
-        scalar: 1.1,
+        scalar: 1.05,
+        disableForReducedMotion: true,
       });
-    }, 400);
+    }, 1050);
 
-    // 3. Initiate the graceful 1-second curtain glide and reveal (~750ms)
+    // 3. Initiate the graceful 1-second curtain glide and reveal after rings are fully admired (~1900ms)
     setTimeout(() => {
       setIsOpened(true);
       if (typeof onOpen === 'function') {
         onOpen();
       }
-    }, 750);
+    }, 1900);
 
-    // 4. Completely unmount from DOM after the full 1s motion completes (~1900ms)
+    // 4. Completely unmount from DOM after the full sequence completes (~3100ms)
     setTimeout(() => {
       setIsUnmounted(true);
-    }, 1900);
+    }, 3100);
   };
 
   if (isUnmounted) return null;
@@ -113,13 +115,19 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
 
         {/* Interactive Wedding Rings Union / Interlocking Animation */}
         <div className="my-6 relative h-20 w-48 flex items-center justify-center">
-          {/* Ring 1 (Groom's Classic Gold Band - glides from left to center) */}
-          <div
-            className={`absolute transition-all duration-700 ease-out transform ${
-              isAnimating
-                ? 'translate-x-[-12px] rotate-[-15deg] scale-110'
-                : 'translate-x-[-32px] rotate-[-25deg] scale-100 hover:scale-105'
-            }`}
+          {/* Ring 1 (Groom's Classic Gold Band - glides smoothly from left to center) */}
+          <motion.div
+            className="absolute cursor-pointer"
+            initial={false}
+            animate={{
+              x: isAnimating ? -10 : -42,
+              rotate: isAnimating ? -14 : -24,
+              scale: isAnimating ? 1.12 : 1.0,
+            }}
+            transition={{
+              duration: 1.25,
+              ease: [0.16, 1, 0.3, 1],
+            }}
           >
             <svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-14 h-14 sm:w-16 sm:h-16 drop-shadow-md">
               <defs>
@@ -135,15 +143,21 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
               {/* Inner highlight sheen */}
               <ellipse cx="35" cy="35" rx="24" ry="16" stroke="#FAF4E6" strokeWidth="1" fill="none" opacity="0.7" />
             </svg>
-          </div>
+          </motion.div>
 
-          {/* Ring 2 (Bride's Solitaire Diamond Ring - glides from right to center) */}
-          <div
-            className={`absolute transition-all duration-700 ease-out transform ${
-              isAnimating
-                ? 'translate-x-[12px] rotate-[15deg] scale-110'
-                : 'translate-x-[32px] rotate-[25deg] scale-100 hover:scale-105'
-            }`}
+          {/* Ring 2 (Bride's Solitaire Diamond Ring - glides smoothly from right to center) */}
+          <motion.div
+            className="absolute cursor-pointer"
+            initial={false}
+            animate={{
+              x: isAnimating ? 10 : 42,
+              rotate: isAnimating ? 14 : 24,
+              scale: isAnimating ? 1.12 : 1.0,
+            }}
+            transition={{
+              duration: 1.25,
+              ease: [0.16, 1, 0.3, 1],
+            }}
           >
             <svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-14 h-14 sm:w-16 sm:h-16 drop-shadow-md">
               <defs>
@@ -169,13 +183,18 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
               {/* Diamond Sparkle Star */}
               <circle cx="35" cy="18" r="1.5" fill="#FFFFFF" className={isAnimating ? 'animate-ping' : ''} />
             </svg>
-          </div>
+          </motion.div>
 
-          {/* Central Union Glow */}
+          {/* Central Union Golden Halo Glow */}
           {isAnimating && (
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-12 h-12 bg-[#D4AF37]/40 rounded-full blur-md animate-ping" />
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.4 }}
+              animate={{ opacity: [0, 0.85, 0.5], scale: [0.4, 1.4, 1.1] }}
+              transition={{ delay: 0.8, duration: 0.9, ease: "easeOut" }}
+              className="absolute inset-0 flex items-center justify-center pointer-events-none"
+            >
+              <div className="w-14 h-14 bg-gradient-to-r from-[#D4AF37] to-[#FFF3CC] rounded-full blur-md opacity-75" />
+            </motion.div>
           )}
         </div>
 
