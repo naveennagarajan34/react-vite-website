@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { PosterCornerOrnament } from './OrnamentalMotifs';
 
@@ -9,7 +8,7 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
   const [isUnmounted, setIsUnmounted] = useState(false);
 
   useEffect(() => {
-    // Lock scrolling while curtain is active and guarantee top position
+    // Lock scrolling while curtain is active
     if (!isOpened) {
       document.body.style.overflow = 'hidden';
       window.scrollTo(0, 0);
@@ -25,16 +24,14 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
     if (isAnimating || isOpened) return;
     setIsAnimating(true);
 
-    // Guarantee the page is at the very top when opening
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-
-    // 1. Play background wedding audio immediately via user gesture
+    // 1. Play background wedding audio safely decoupled from the initial frame
     if (typeof playBgm === 'function') {
-      playBgm();
+      setTimeout(() => {
+        playBgm();
+      }, 60);
     }
 
-    // 2. Trigger golden sparkle & confetti burst right when the rings have fully met (~1300ms)
-    // Delaying confetti until the glide completes keeps mobile 60fps/120fps butter-smooth
+    // 2. Trigger golden sparkle & confetti burst right when the rings have fully met (~1400ms)
     setTimeout(() => {
       confetti({
         particleCount: 50,
@@ -44,20 +41,20 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
         scalar: 1.05,
         disableForReducedMotion: true,
       });
-    }, 1300);
+    }, 1400);
 
-    // 3. Initiate the graceful 1-second curtain glide and reveal after rings are fully admired (~2150ms)
+    // 3. Initiate the graceful 1-second curtain glide and reveal after rings are fully admired (~2200ms)
     setTimeout(() => {
       setIsOpened(true);
       if (typeof onOpen === 'function') {
         onOpen();
       }
-    }, 2150);
+    }, 2200);
 
-    // 4. Completely unmount from DOM after the full sequence completes (~3350ms)
+    // 4. Completely unmount from DOM after the full sequence completes (~3400ms)
     setTimeout(() => {
       setIsUnmounted(true);
-    }, 3350);
+    }, 3400);
   };
 
   if (isUnmounted) return null;
@@ -116,26 +113,30 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
 
         {/* Interactive Wedding Rings Union / Interlocking Animation */}
         <div className="my-6 relative h-20 w-48 flex items-center justify-center overflow-visible">
-          {/* Ring 1 (Groom's Classic Gold Band - glides smoothly from left to center) */}
-          <motion.div
+          {/* Ring 1 (Groom's Classic Gold Band - Hardware-Accelerated 3D Transform) */}
+          <div
             className="absolute cursor-pointer"
-            initial={false}
-            animate={{
-              x: isAnimating ? -10 : -42,
-              rotate: isAnimating ? -15 : -25,
-            }}
-            transition={{
-              duration: 1.3,
-              ease: [0.22, 1, 0.36, 1],
-            }}
             style={{
+              transform: isAnimating
+                ? 'translate3d(-10px, 0, 0) rotate(-15deg)'
+                : 'translate3d(-42px, 0, 0) rotate(-25deg)',
+              WebkitTransform: isAnimating
+                ? 'translate3d(-10px, 0, 0) rotate(-15deg)'
+                : 'translate3d(-42px, 0, 0) rotate(-25deg)',
+              transition: 'transform 1.35s cubic-bezier(0.22, 1, 0.36, 1), -webkit-transform 1.35s cubic-bezier(0.22, 1, 0.36, 1)',
+              WebkitTransition: '-webkit-transform 1.35s cubic-bezier(0.22, 1, 0.36, 1)',
               willChange: 'transform',
               backfaceVisibility: 'hidden',
               WebkitBackfaceVisibility: 'hidden',
-              transform: 'translateZ(0)',
             }}
           >
-            <svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-16 h-16">
+            <svg
+              viewBox="0 0 70 70"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              shapeRendering="geometricPrecision"
+              className="w-16 h-16"
+            >
               <defs>
                 <linearGradient id="ringGoldGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#FFFBF0" />
@@ -151,28 +152,32 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
               {/* Inner highlight sheen */}
               <ellipse cx="35" cy="35" rx="24" ry="16" stroke="#FAF4E6" strokeWidth="1" fill="none" opacity="0.75" />
             </svg>
-          </motion.div>
+          </div>
 
-          {/* Ring 2 (Bride's Solitaire Diamond Ring - glides smoothly from right to center) */}
-          <motion.div
+          {/* Ring 2 (Bride's Solitaire Diamond Ring - Hardware-Accelerated 3D Transform) */}
+          <div
             className="absolute cursor-pointer"
-            initial={false}
-            animate={{
-              x: isAnimating ? 10 : 42,
-              rotate: isAnimating ? 15 : 25,
-            }}
-            transition={{
-              duration: 1.3,
-              ease: [0.22, 1, 0.36, 1],
-            }}
             style={{
+              transform: isAnimating
+                ? 'translate3d(10px, 0, 0) rotate(15deg)'
+                : 'translate3d(42px, 0, 0) rotate(25deg)',
+              WebkitTransform: isAnimating
+                ? 'translate3d(10px, 0, 0) rotate(15deg)'
+                : 'translate3d(42px, 0, 0) rotate(25deg)',
+              transition: 'transform 1.35s cubic-bezier(0.22, 1, 0.36, 1), -webkit-transform 1.35s cubic-bezier(0.22, 1, 0.36, 1)',
+              WebkitTransition: '-webkit-transform 1.35s cubic-bezier(0.22, 1, 0.36, 1)',
               willChange: 'transform',
               backfaceVisibility: 'hidden',
               WebkitBackfaceVisibility: 'hidden',
-              transform: 'translateZ(0)',
             }}
           >
-            <svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-16 h-16">
+            <svg
+              viewBox="0 0 70 70"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              shapeRendering="geometricPrecision"
+              className="w-16 h-16"
+            >
               <defs>
                 <linearGradient id="ringGoldGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#FFFBF0" />
@@ -198,24 +203,26 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
               {/* Diamond Sparkle Point (Static crisp highlight, no laggy ping redraw) */}
               <circle cx="35" cy="17" r="1.5" fill="#FFFFFF" opacity="0.9" />
             </svg>
-          </motion.div>
+          </div>
 
-          {/* Central Union Golden Halo Glow (Pure GPU Radial Gradient, no CPU blur filter) */}
-          {isAnimating && (
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.6 }}
-              animate={{ opacity: 0.85, scale: 1.15 }}
-              transition={{ delay: 0.9, duration: 0.5, ease: "easeOut" }}
-              className="absolute inset-0 flex items-center justify-center pointer-events-none"
-            >
-              <div 
-                className="w-16 h-16 rounded-full"
-                style={{
-                  background: 'radial-gradient(circle, rgba(212,175,55,0.45) 0%, rgba(230,211,163,0.18) 50%, transparent 70%)',
-                }}
-              />
-            </motion.div>
-          )}
+          {/* Central Union Golden Halo Glow (Pure GPU Radial Gradient) */}
+          <div 
+            className="absolute inset-0 flex items-center justify-center pointer-events-none"
+            style={{
+              opacity: isAnimating ? 0.85 : 0,
+              transform: isAnimating ? 'scale(1.15)' : 'scale(0.5)',
+              WebkitTransform: isAnimating ? 'scale(1.15)' : 'scale(0.5)',
+              transition: 'opacity 0.6s ease-out 0.9s, transform 0.6s ease-out 0.9s, -webkit-transform 0.6s ease-out 0.9s',
+              willChange: 'opacity, transform',
+            }}
+          >
+            <div 
+              className="w-16 h-16 rounded-full"
+              style={{
+                background: 'radial-gradient(circle, rgba(212,175,55,0.45) 0%, rgba(230,211,163,0.18) 50%, transparent 70%)',
+              }}
+            />
+          </div>
         </div>
 
         {/* Royal Gold Wax Seal Button Centered Beneath the Rings */}
@@ -226,12 +233,19 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
                 ? 'scale-125 opacity-0 pointer-events-none' 
                 : 'hover:scale-105 active:scale-95 animate-seal-breathe'
             }`}
+            style={{
+              willChange: 'transform, opacity',
+              backfaceVisibility: 'hidden',
+              WebkitBackfaceVisibility: 'hidden',
+            }}
           >
-            {/* Scalloped / Wavy Gold Wax Seal SVG with Deep Drop Shadow */}
-            <svg
-              viewBox="0 0 120 120"
-              className="w-24 h-24 sm:w-28 sm:h-28 drop-shadow-[0_16px_28px_rgba(74,44,10,0.45)]"
-            >
+            {/* Scalloped / Wavy Gold Wax Seal SVG with Hardware-Accelerated Container Shadow */}
+            <div className="rounded-full shadow-[0_14px_28px_rgba(74,44,10,0.38)]">
+              <svg
+                viewBox="0 0 120 120"
+                shapeRendering="geometricPrecision"
+                className="w-24 h-24 sm:w-28 sm:h-28 block"
+              >
               <defs>
                 {/* Metallic Gold Base Gradient */}
                 <radialGradient id="waxBaseGrad" cx="35%" cy="30%" r="70%">
@@ -284,6 +298,7 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
                 G &amp; H
               </text>
             </svg>
+            </div>
           </div>
 
           {/* Bottom Helper Text Prompt */}
