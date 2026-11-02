@@ -33,30 +33,31 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
       playBgm();
     }
 
-    // 2. Trigger golden sparkle & confetti burst right when the rings interlock (~1050ms)
+    // 2. Trigger golden sparkle & confetti burst right when the rings have fully met (~1300ms)
+    // Delaying confetti until the glide completes keeps mobile 60fps/120fps butter-smooth
     setTimeout(() => {
       confetti({
-        particleCount: 55,
-        spread: 75,
+        particleCount: 50,
+        spread: 70,
         origin: { y: 0.50 },
         colors: ['#D4AF37', '#E6D3A3', '#8C6A16', '#FAF6EB', '#FFDF73'],
         scalar: 1.05,
         disableForReducedMotion: true,
       });
-    }, 1050);
+    }, 1300);
 
-    // 3. Initiate the graceful 1-second curtain glide and reveal after rings are fully admired (~1900ms)
+    // 3. Initiate the graceful 1-second curtain glide and reveal after rings are fully admired (~2150ms)
     setTimeout(() => {
       setIsOpened(true);
       if (typeof onOpen === 'function') {
         onOpen();
       }
-    }, 1900);
+    }, 2150);
 
-    // 4. Completely unmount from DOM after the full sequence completes (~3100ms)
+    // 4. Completely unmount from DOM after the full sequence completes (~3350ms)
     setTimeout(() => {
       setIsUnmounted(true);
-    }, 3100);
+    }, 3350);
   };
 
   if (isUnmounted) return null;
@@ -114,34 +115,41 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
         </p>
 
         {/* Interactive Wedding Rings Union / Interlocking Animation */}
-        <div className="my-6 relative h-20 w-48 flex items-center justify-center">
+        <div className="my-6 relative h-20 w-48 flex items-center justify-center overflow-visible">
           {/* Ring 1 (Groom's Classic Gold Band - glides smoothly from left to center) */}
           <motion.div
             className="absolute cursor-pointer"
             initial={false}
             animate={{
               x: isAnimating ? -10 : -42,
-              rotate: isAnimating ? -14 : -24,
-              scale: isAnimating ? 1.12 : 1.0,
+              rotate: isAnimating ? -15 : -25,
             }}
             transition={{
-              duration: 1.25,
-              ease: [0.16, 1, 0.3, 1],
+              duration: 1.3,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            style={{
+              willChange: 'transform',
+              backfaceVisibility: 'hidden',
+              WebkitBackfaceVisibility: 'hidden',
+              transform: 'translateZ(0)',
             }}
           >
-            <svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-14 h-14 sm:w-16 sm:h-16 drop-shadow-md">
+            <svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-16 h-16">
               <defs>
                 <linearGradient id="ringGoldGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#FFF8F5" />
+                  <stop offset="0%" stopColor="#FFFBF0" />
                   <stop offset="30%" stopColor="#E6D3A3" />
                   <stop offset="60%" stopColor="#D4AF37" />
                   <stop offset="100%" stopColor="#8C6A16" />
                 </linearGradient>
               </defs>
+              {/* Embedded Vector Shadow (Zero CPU/GPU Gaussian blur overhead on mobile) */}
+              <ellipse cx="35" cy="38" rx="26" ry="18" stroke="rgba(70,45,10,0.18)" strokeWidth="6" fill="none" />
               {/* Outer band */}
               <ellipse cx="35" cy="35" rx="26" ry="18" stroke="url(#ringGoldGrad1)" strokeWidth="6.5" fill="none" />
               {/* Inner highlight sheen */}
-              <ellipse cx="35" cy="35" rx="24" ry="16" stroke="#FAF4E6" strokeWidth="1" fill="none" opacity="0.7" />
+              <ellipse cx="35" cy="35" rx="24" ry="16" stroke="#FAF4E6" strokeWidth="1" fill="none" opacity="0.75" />
             </svg>
           </motion.div>
 
@@ -151,18 +159,23 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
             initial={false}
             animate={{
               x: isAnimating ? 10 : 42,
-              rotate: isAnimating ? 14 : 24,
-              scale: isAnimating ? 1.12 : 1.0,
+              rotate: isAnimating ? 15 : 25,
             }}
             transition={{
-              duration: 1.25,
-              ease: [0.16, 1, 0.3, 1],
+              duration: 1.3,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            style={{
+              willChange: 'transform',
+              backfaceVisibility: 'hidden',
+              WebkitBackfaceVisibility: 'hidden',
+              transform: 'translateZ(0)',
             }}
           >
-            <svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-14 h-14 sm:w-16 sm:h-16 drop-shadow-md">
+            <svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-16 h-16">
               <defs>
                 <linearGradient id="ringGoldGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#FFF8F5" />
+                  <stop offset="0%" stopColor="#FFFBF0" />
                   <stop offset="30%" stopColor="#E6D3A3" />
                   <stop offset="60%" stopColor="#D4AF37" />
                   <stop offset="100%" stopColor="#8C6A16" />
@@ -173,27 +186,34 @@ export const LandingCurtain = ({ onOpen, playBgm }) => {
                   <stop offset="100%" stopColor="#BAE6FD" />
                 </radialGradient>
               </defs>
+              {/* Embedded Vector Shadow (Zero CPU/GPU Gaussian blur overhead on mobile) */}
+              <ellipse cx="35" cy="40" rx="26" ry="18" stroke="rgba(70,45,10,0.18)" strokeWidth="6" fill="none" />
               {/* Outer band */}
-              <ellipse cx="35" cy="38" rx="26" ry="18" stroke="url(#ringGoldGrad2)" strokeWidth="6.5" fill="none" />
+              <ellipse cx="35" cy="37" rx="26" ry="18" stroke="url(#ringGoldGrad2)" strokeWidth="6.5" fill="none" />
               {/* Crown prongs */}
-              <path d="M 31 22 L 35 18 L 39 22" stroke="#D4AF37" strokeWidth="2.5" fill="none" />
+              <path d="M 31 21 L 35 17 L 39 21" stroke="#D4AF37" strokeWidth="2.5" fill="none" />
               {/* Sparkling Solitaire Diamond */}
-              <polygon points="35,11 41,18 35,25 29,18" fill="url(#diamondShine)" stroke="#8C6A16" strokeWidth="0.8" />
-              <polygon points="35,11 38,18 35,25 32,18" fill="#FFFFFF" opacity="0.8" />
-              {/* Diamond Sparkle Star */}
-              <circle cx="35" cy="18" r="1.5" fill="#FFFFFF" className={isAnimating ? 'animate-ping' : ''} />
+              <polygon points="35,10 41,17 35,24 29,17" fill="url(#diamondShine)" stroke="#8C6A16" strokeWidth="0.8" />
+              <polygon points="35,10 38,17 35,24 32,17" fill="#FFFFFF" opacity="0.85" />
+              {/* Diamond Sparkle Point (Static crisp highlight, no laggy ping redraw) */}
+              <circle cx="35" cy="17" r="1.5" fill="#FFFFFF" opacity="0.9" />
             </svg>
           </motion.div>
 
-          {/* Central Union Golden Halo Glow */}
+          {/* Central Union Golden Halo Glow (Pure GPU Radial Gradient, no CPU blur filter) */}
           {isAnimating && (
             <motion.div 
-              initial={{ opacity: 0, scale: 0.4 }}
-              animate={{ opacity: [0, 0.85, 0.5], scale: [0.4, 1.4, 1.1] }}
-              transition={{ delay: 0.8, duration: 0.9, ease: "easeOut" }}
+              initial={{ opacity: 0, scale: 0.6 }}
+              animate={{ opacity: 0.85, scale: 1.15 }}
+              transition={{ delay: 0.9, duration: 0.5, ease: "easeOut" }}
               className="absolute inset-0 flex items-center justify-center pointer-events-none"
             >
-              <div className="w-14 h-14 bg-gradient-to-r from-[#D4AF37] to-[#FFF3CC] rounded-full blur-md opacity-75" />
+              <div 
+                className="w-16 h-16 rounded-full"
+                style={{
+                  background: 'radial-gradient(circle, rgba(212,175,55,0.45) 0%, rgba(230,211,163,0.18) 50%, transparent 70%)',
+                }}
+              />
             </motion.div>
           )}
         </div>
