@@ -6,6 +6,7 @@ import { MobileQuickBar } from './components/MobileQuickBar';
 import { ThoranamHeader } from './components/OrnamentalMotifs';
 import { FallingPetalsCanvas } from './components/FallingPetalsCanvas';
 import { LandingCurtain } from './components/LandingCurtain';
+import { Analytics } from '@vercel/analytics/react';
 import { Volume2, VolumeX } from 'lucide-react';
 
 export default function App() {
@@ -109,6 +110,9 @@ export default function App() {
 
       {/* 5. Sticky Mobile Quick Action Bar (with Directions button) */}
       <MobileQuickBar isOpen={isCurtainOpened} />
+
+      {/* Private Vercel Web Analytics (Invisible to visitors) */}
+      <Analytics />
     </div>
   );
 }
