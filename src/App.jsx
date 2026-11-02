@@ -58,13 +58,15 @@ export default function App() {
   };
 
   const handleLandingOpen = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    playBgm();
     setIsCurtainOpened(true);
   };
 
   return (
     <div className="min-h-screen bg-royal-bg-pattern text-[#333333] flex flex-col relative selection:bg-[#D4AF37] selection:text-[#1A1A1A] font-inter">
       {/* Interactive Welcome Landing Screen Overlay with Ring Exchange */}
-      <LandingCurtain playBgm={playBgm} onOpen={handleLandingOpen} />
+      <LandingCurtain playBgm={handleLandingOpen} onOpen={handleLandingOpen} />
 
       {/* Dynamic Golden Flower Petals Background System */}
       <FallingPetalsCanvas />
